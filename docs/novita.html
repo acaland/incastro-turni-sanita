@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novità – Incastro Turni</title>
+<meta name="description" content="Le versioni di Incastro Turni e cosa cambia in ognuna.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/icona.png">
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="contenitore">
+    <a class="marchio" href="./"><img src="img/icona.png" alt="">Incastro Turni</a>
+    <button class="menu-bottone" aria-label="Menu" aria-expanded="false" onclick="const n=document.getElementById('nav');this.setAttribute('aria-expanded',n.classList.toggle('aperto'))">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+    </button>
+    <nav class="voci">
+      <a href="./#funzioni">Funzioni</a>
+      <a href="./#telefono">App per il telefono</a>
+      <a href="./#video">Video</a>
+      <a href="guida/">Guida</a>
+      <a href="novita.html" aria-current="page">Novità</a>
+      <a class="pillola" href="./#scarica">Scarica</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pagina">
+  <div class="contenitore">
+    <h1>Novità</h1>
+    <p class="intro">Ogni versione e cosa cambia. L'app installata si aggiorna da sola: non serve scaricare nulla.</p>
+
+    <div id="versioni">
+      <!-- copia statica, sostituita dall'elenco aggiornato delle release di GitHub quando è raggiungibile -->
+      <article class="versione">
+        <header><h2>0.1.0</h2><time datetime="2026-10-30">30 ottobre 2026</time><span class="ultima">Prima versione</span></header>
+        <h3>Il turno del mese</h3>
+        <ul>
+          <li>Generazione automatica del turno mensile con un ottimizzatore a vincoli (Google OR-Tools).</li>
+          <li>Desiderata importati dal foglio Excel di raccolta o scritti direttamente in griglia.</li>
+          <li>Regole base del reparto e variazioni del mese, con moduli guidati; ambulatori che partono o si sospendono in un mese.</li>
+          <li>Controllo indipendente di ogni turno: violazioni rigide, preferenze non soddisfatte, desiderata non rispettati.</li>
+          <li>Celle fissate a mano e rigenerazione del resto del mese; versioni numerate.</li>
+          <li>Equità di notti, festivi, sabati e pomeriggi in proporzione alla presenza, tenendo conto dei mesi precedenti.</li>
+          <li>Spiegazione dei casi impossibili: quale giorno, quale regola, quante persone mancano.</li>
+        </ul>
+        <h3>Uscite</h3>
+        <ul>
+          <li>PDF del turno con legenda e spazi per le firme.</li>
+          <li>Dati per l'app per il telefono, con link cifrato da inviare ai colleghi.</li>
+        </ul>
+        <h3>App per Windows e Mac</h3>
+        <ul>
+          <li>Installazione nella cartella dell'utente, senza permessi di amministratore.</li>
+          <li>Aggiornamenti automatici in background, con pulsante «Riavvia e aggiorna».</li>
+          <li>Copia di sicurezza giornaliera; esportazione e importazione dell'archivio per cambiare computer.</li>
+          <li>Guida illustrata integrata.</li>
+        </ul>
+        <p class="file"><a href="https://github.com/acaland/incastro-turni-releases/releases/tag/v0.1.0">File della versione 0.1.0</a></p>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="contenitore righe">
+    <div>
+      <p>Progettata e realizzata dall'Ing. Antonio S. Calanducci.</p>
+      <p>Incastro Turni · progetto personale, senza garanzie e senza supporto ufficiale.</p>
+    </div>
+    <nav>
+      <a href="guida/">Guida</a>
+      <a href="https://github.com/acaland/incastro-turni-releases/issues">Segnala un problema</a>
+      <a href="https://github.com/acaland/incastro-turni-releases/releases">Tutte le versioni</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Elenco aggiornato dalle release di GitHub: le note di ogni release sono il messaggio del tag (Markdown semplice).
+(function () {
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function inline(s) {
+    return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`(.+?)`/g, "<code>$1</code>")
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2">$1</a>');
+  }
+  function markdown(testo) {
+    var out = [], lista = false;
+    testo.replace(/\r/g, "").split("\n").forEach(function (r) {
+      var m;
+      if ((m = r.match(/^\s*[-*]\s+(.*)/))) { if (!lista) { out.push("<ul>"); lista = true; } out.push("<li>" + inline(m[1]) + "</li>"); return; }
+      if (lista) { out.push("</ul>"); lista = false; }
+      if ((m = r.match(/^#{1,6}\s+(.*)/))) out.push("<h3>" + inline(m[1]) + "</h3>");
+      else if (r.trim()) out.push("<p>" + inline(r) + "</p>");
+    });
+    if (lista) out.push("</ul>");
+    return out.join("");
+  }
+  var data = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" });
+  fetch("https://api.github.com/repos/acaland/incastro-turni-releases/releases?per_page=50")
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (rel) {
+      if (!rel) return;
+      rel = rel.filter(function (r) { return !r.draft && !r.prerelease; });
+      if (!rel.length) return;
+      document.getElementById("versioni").innerHTML = rel.map(function (r, i) {
+        var v = r.tag_name.replace(/^v/, ""), d = new Date(r.published_at);
+        return '<article class="versione"><header><h2>' + esc(v) + '</h2><time datetime="' + r.published_at + '">' +
+          data.format(d) + "</time>" + (i === 0 ? '<span class="ultima">Ultima versione</span>' : "") + "</header>" +
+          markdown(r.body || "") + '<p class="file"><a href="' + r.html_url + '">File della versione ' + esc(v) + "</a></p></article>";
+      }).join("");
+    })
+    .catch(function () {});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Incastro Turni – il turno del mese, senza rompicapo</title>
+<meta name="description" content="App per Windows e Mac che genera il turno mensile del reparto da desiderata e regole, con controllo delle regole, equità, PDF da firmare e app per il telefono dei colleghi.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Incastro Turni">
+<meta property="og:description" content="Il turno del mese del reparto: desiderata, regole, generazione automatica, PDF e app per il telefono.">
+<meta property="og:image" content="img/turno.webp">
+<link rel="icon" href="img/icona.png">
+<link rel="apple-touch-icon" href="img/icona.png">
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="contenitore">
+    <a class="marchio" href="./"><img src="img/icona.png" alt="">Incastro Turni</a>
+    <button class="menu-bottone" aria-label="Menu" aria-expanded="false" onclick="const n=document.getElementById('nav');this.setAttribute('aria-expanded',n.classList.toggle('aperto'))">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+    </button>
+    <nav class="voci">
+      <a href="#funzioni">Funzioni</a>
+      <a href="#telefono">App per il telefono</a>
+      <a href="#video">Video</a>
+      <a href="guida/">Guida</a>
+      <a href="novita.html">Novità</a>
+      <a class="pillola" href="#scarica">Scarica</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- eroe -->
+<div class="eroe">
+  <div class="contenitore">
+    <img class="icona" src="img/icona.png" alt="">
+    <h1>Incastro Turni</h1>
+    <p class="slogan">Il turno del mese, senza rompicapo.</p>
+    <p class="intro">Inserisci i desiderata dei colleghi, premi <b>Genera</b>: Incastro Turni propone un turno che rispetta
+      le regole del reparto e distribuisce con equità notti, festivi e weekend. Tu controlli, ritocchi e pubblichi.</p>
+    <div class="azioni">
+      <a class="bottone" href="#scarica">Scarica gratis</a>
+      <a class="link-freccia" href="#video">Guarda il video</a>
+    </div>
+    <p class="nota-piccola">Per Windows e Mac · si installa senza permessi di amministratore · si aggiorna da sola</p>
+  </div>
+  <div class="schermo">
+    <div class="finestra taglio">
+      <div class="titolo"><i></i><i></i><i></i><span>Incastro Turni</span></div>
+      <img src="img/turno.webp" alt="Il turno di novembre generato da Incastro Turni: una griglia con medici sulle righe e giorni sulle colonne, colorata per tipo di attività" width="2160" height="1290">
+    </div>
+  </div>
+</div>
+
+<!-- sei passaggi -->
+<section class="grigio" id="come">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">Come funziona</p>
+      <h2>Dal foglio dei desiderata al PDF firmato. In sei passaggi.</h2>
+      <p>Le regole del reparto si inseriscono una volta sola. Ogni mese restano solo le cose che cambiano davvero.</p>
+    </div>
+    <ol class="passi">
+      <li><b>Apri il mese</b><span>Un clic sulla pagina Mesi.</span></li>
+      <li><b>Desiderata</b><span>Importa il solito foglio Excel o scrivili in griglia.</span></li>
+      <li><b>Regole del mese</b><span>Ambulatori che partono o si fermano, eccezioni.</span></li>
+      <li><b>Genera</b><span>Circa 30 secondi per un turno completo.</span></li>
+      <li><b>Controlla</b><span>Zero violazioni rigide? Il turno è in regola.</span></li>
+      <li><b>Pubblica</b><span>PDF per l'amministrazione e link per i telefoni.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- funzioni -->
+<section id="funzioni">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">Funzioni</p>
+      <h2>Tutto quello che serve per il turno. Niente di più.</h2>
+    </div>
+
+    <div class="funzione">
+      <div class="testo">
+        <h3>I desiderata, dal foglio di sempre.</h3>
+        <p>Ferie, malattie, «niente notte il 14», «vorrei il pomeriggio il 25»: importa il foglio Excel con cui li raccogli già,
+          oppure scrivili direttamente nella griglia. <b>Ogni cella si colora</b> secondo come è stata capita.</p>
+        <ul class="elenco">
+          <li>Assenze, «NO» vincolanti e richieste di turno</li>
+          <li>I testi non riconosciuti sono segnalati, mai ignorati in silenzio</li>
+        </ul>
+      </div>
+      <div class="immagine"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Desiderata · novembre 2026</span></div>
+        <img src="img/desiderata.webp" alt="Griglia dei desiderata di novembre con assenze, NO e richieste colorate" loading="lazy" width="2160" height="1290"></div></div>
+    </div>
+
+    <div class="funzione inversa">
+      <div class="testo">
+        <h3>Un clic. Un turno completo.</h3>
+        <p>Un motore di ottimizzazione a vincoli (Google OR-Tools) valuta moltissime combinazioni e sceglie la migliore:
+          <b>coperture, notti e smonti, recuperi, ambulatori, reparto, weekend</b>, rispettando i desiderata.</p>
+        <ul class="elenco">
+          <li>Regole rigide sempre rispettate, preferenze quando possibile</li>
+          <li>Continuità con il mese precedente: smonti, recuperi, settimane a cavallo</li>
+        </ul>
+      </div>
+      <div class="immagine"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Genera e rivedi</span></div>
+        <img src="img/ispettore.webp" alt="Turno generato con il pannello di dettaglio di una cella" loading="lazy" width="2160" height="1290"></div></div>
+    </div>
+
+    <div class="funzione">
+      <div class="testo">
+        <h3>Correggi a mano. Il resto si riadatta.</h3>
+        <p>Il direttore chiede una modifica? Cambia la cella, <b>fissala</b> e premi «Rigenera»: il programma ricalcola il resto
+          del mese tenendo ferme le tue scelte. Ogni modifica è <b>ricontrollata subito</b> da un validatore indipendente.</p>
+        <ul class="elenco">
+          <li>Versioni numerate, si torna indietro quando serve</li>
+          <li>Ogni violazione spiegata, giorno per giorno</li>
+        </ul>
+      </div>
+      <div class="immagine"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Versione 2 · rigenerata</span></div>
+        <img src="img/rigenera.webp" alt="Turno rigenerato con una cella fissata a mano" loading="lazy" width="2160" height="1290"></div></div>
+    </div>
+
+    <div class="funzione inversa">
+      <div class="testo">
+        <h3>Equità che ha memoria.</h3>
+        <p>Notti, festivi, sabati, pomeriggi: il carico è distribuito <b>in proporzione ai giorni di presenza</b> e tiene conto
+          dei mesi precedenti. Chi ha fatto più notti il mese scorso, ne fa qualcuna in meno questo mese.</p>
+      </div>
+      <div class="immagine"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Equità</span></div>
+        <img src="img/equita.webp" alt="Tabella dell'equità con i conteggi per collega e lo scarto dall'obiettivo" loading="lazy" width="2160" height="1290"></div></div>
+    </div>
+
+    <div class="funzione">
+      <div class="testo">
+        <h3>Le regole del reparto. Mese per mese.</h3>
+        <p>Le regole stabili restano; ogni mese aggiungi solo le eccezioni: un ambulatorio che parte, uno che si ferma,
+          un collega in affiancamento. <b>Moduli guidati</b>, senza scrivere codice.</p>
+        <ul class="elenco">
+          <li>Coperture, idoneità, sequenze, recuperi, blocchi settimanali</li>
+          <li>Colleghi che arrivano o lasciano a metà mese</li>
+        </ul>
+      </div>
+      <div class="immagine stretta"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Nuovo ambulatorio</span></div>
+        <img src="img/regola.webp" alt="Modulo per aggiungere un ambulatorio nel mese" loading="lazy"></div></div>
+    </div>
+
+    <div class="funzione inversa">
+      <div class="testo">
+        <h3>Se è impossibile, ti dice perché.</h3>
+        <p>Troppe ferie lo stesso giorno? Invece di un turno sbagliato ottieni una spiegazione chiara:
+          <b>quale giorno, quale regola, quante persone mancano</b>.</p>
+      </div>
+      <div class="immagine stretta"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Turno impossibile</span></div>
+        <img src="img/impossibile.webp" alt="Messaggio che spiega perché il turno non si può fare" loading="lazy"></div></div>
+    </div>
+
+    <div class="funzione">
+      <div class="testo">
+        <h3>Il PDF, pronto da firmare.</h3>
+        <p>Griglia del mese con legenda, spazi per le firme del responsabile e del direttore e riepilogo per collega.
+          Da stampare o inviare all'amministrazione.</p>
+      </div>
+      <div class="immagine"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Turno novembre 2026.pdf</span></div>
+        <img src="img/pdf.webp" alt="Anteprima del PDF del turno" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- riquadri -->
+<section class="grigio">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">Pensata per chi fa i turni</p>
+      <h2>Semplice da installare. Rispettosa dei dati.</h2>
+    </div>
+    <div class="riquadri">
+      <div class="riquadro largo"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>I dati restano sul tuo computer</h3>
+        <p>Nomi, regole e turni non vanno su nessun server: niente account, niente cloud. Funziona anche senza Internet.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></svg></span><h3>Windows e Mac</h3>
+        <p>Si installa nella cartella dell'utente: non servono permessi di amministratore.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/></svg></span><h3>Si aggiorna da sola</h3>
+        <p>Le nuove versioni arrivano in automatico, scaricando solo le differenze.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9M10 13h4"/></svg></span><h3>Copie di sicurezza</h3>
+        <p>Una copia automatica al giorno e un archivio da esportare per cambiare computer.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M17.5 14a6.5 6.5 0 0 1 4 6"/></svg></span><h3>Medici, infermieri, tecnici</h3>
+        <p>Nata per un reparto ospedaliero, adatta a qualunque équipe sanitaria con turni, guardie e ambulatori.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- app per il telefono -->
+<section class="scura" id="telefono">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">App per il telefono</p>
+      <h2>Il turno in tasca. Per tutti i colleghi.</h2>
+      <p>Pubblicato il turno, Incastro Turni prepara un link cifrato da mandare su WhatsApp o per e-mail.
+        Ognuno lo apre sul telefono e vede i suoi turni: oggi e domani, il mese, chi c'è in reparto.</p>
+    </div>
+    <div class="telefoni">
+      <div class="telefono"><img src="img/telefono-oggi.webp" alt="Schermata Oggi dell'app per il telefono" loading="lazy"></div>
+      <div class="telefono"><img src="img/telefono-mese.webp" alt="Calendario del mese sull'app per il telefono" loading="lazy"></div>
+      <div class="telefono"><img src="img/telefono-reparto.webp" alt="Chi c'è in reparto in un giorno" loading="lazy"></div>
+    </div>
+    <div class="didascalie"><div>Oggi e domani, in primo piano</div><div>Il mese a colpo d'occhio</div><div>Chi c'è, giorno per giorno</div></div>
+    <div class="punti">
+      <div><h3>Niente da installare</h3><p>Si apre nel browser; chi vuole la aggiunge alla schermata Home come un'app.</p></div>
+      <div><h3>Link cifrato</h3><p>I turni viaggiano cifrati dentro il link: senza il codice del reparto sono illeggibili.</p></div>
+      <div><h3>Dati solo sul telefono</h3><p>I turni non passano da nessun server e restano disponibili anche offline.</p></div>
+      <div><h3>Nel tuo calendario</h3><p>Filtra i tuoi turni o quelli di un collega ed esportali nel calendario.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- video -->
+<section id="video">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">Video</p>
+      <h2>Il turno del mese in quattro minuti.</h2>
+      <p>Dalla creazione del mese alla pubblicazione, sull'app vera. Per i dettagli c'è la <a href="guida/">guida completa</a>.</p>
+    </div>
+    <div class="video">
+      <video controls preload="none" playsinline poster="img/video-poster.webp" width="1920" height="1080">
+        <source src="video/turno-del-mese.mp4" type="video/mp4">
+        <a href="video/turno-del-mese.mp4">Scarica il video</a>
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- scarica -->
+<section class="grigio" id="scarica">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">Scarica</p>
+      <h2>Gratis, per Windows e Mac.</h2>
+      <p>Versione <span id="versione">più recente</span> · <a href="novita.html">cosa c'è di nuovo</a></p>
+    </div>
+    <div class="scarica">
+      <div class="piattaforma" data-os="windows">
+        <div class="etichetta-consigliata"></div>
+        <div class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Windows</h3><p>Windows 10 e 11, 64 bit</p>
+        <a class="bottone" href="https://github.com/acaland/incastro-turni-releases/releases/latest/download/IncastroTurni-win-x64-Setup.exe">Scarica per Windows</a>
+      </div>
+      <div class="piattaforma" data-os="mac">
+        <div class="etichetta-consigliata"></div>
+        <div class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></svg></div><h3>Mac con Apple Silicon</h3><p>Chip M1, M2, M3, M4 e successivi</p>
+        <a class="bottone" href="https://github.com/acaland/incastro-turni-releases/releases/latest/download/IncastroTurni-osx-arm64-Setup.pkg">Scarica per Mac</a>
+      </div>
+      <div class="piattaforma" data-os="mac-intel">
+        <div class="etichetta-consigliata"></div>
+        <div class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></svg></div><h3>Mac con Intel</h3><p>Processore Intel Core</p>
+        <a class="bottone" href="https://github.com/acaland/incastro-turni-releases/releases/latest/download/IncastroTurni-osx-x64-Setup.pkg">Scarica per Mac Intel</a>
+      </div>
+    </div>
+    <div class="installazione">
+      <div class="riquadro"><h3>Primo avvio su Windows</h3>
+        <p>L'app non è ancora firmata digitalmente, quindi Windows mostra un avviso.</p>
+        <ol><li>Apri il file scaricato.</li><li>Se compare «Windows ha protetto il PC»: <b>Ulteriori informazioni</b> → <b>Esegui comunque</b>.</li><li>L'app si installa e compare nel menu Start.</li></ol></div>
+      <div class="riquadro"><h3>Primo avvio su Mac</h3>
+        <p>Il Mac blocca il pacchetto la prima volta perché non è notarizzato da Apple.</p>
+        <ol><li>Apri il file <code>.pkg</code> e premi <b>Fine</b> nell'avviso.</li><li>Impostazioni di Sistema → <b>Privacy e sicurezza</b> → <b>Apri comunque</b>.</li><li>Nell'installatore scegli <b>Installa solo per me</b>.</li></ol></div>
+    </div>
+  </div>
+</section>
+
+<!-- avvertenze -->
+<section id="note">
+  <div class="contenitore">
+    <div class="avvertenze">
+      <h2>Un progetto personale</h2>
+      <p>Incastro Turni è un progetto personale, sviluppato <b>nel tempo libero</b> e messo a disposizione gratuitamente.</p>
+      <p>Il software è fornito <b>così com'è, senza garanzie</b> di alcun tipo. L'autore non si assume responsabilità per l'uso
+        che se ne fa né per i turni prodotti: ogni turno va sempre controllato e approvato da chi ne ha la responsabilità.</p>
+      <p>Per ora <b>non è previsto un supporto ufficiale</b>. Problemi, dubbi e idee si possono segnalare nella pagina delle
+        <a href="https://github.com/acaland/incastro-turni-releases/issues">segnalazioni su GitHub</a>: le leggo volentieri,
+        senza promesse sui tempi di risposta.</p>
+      <p>Nelle immagini e nel video nomi, sigle e reparto sono di fantasia.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="contenitore righe">
+    <div>
+      <p>Progettata e realizzata dall'Ing. Antonio S. Calanducci.</p>
+      <p>Incastro Turni · progetto personale, senza garanzie e senza supporto ufficiale.</p>
+    </div>
+    <nav>
+      <a href="guida/">Guida</a>
+      <a href="novita.html">Novità</a>
+      <a href="https://github.com/acaland/incastro-turni-releases/issues">Segnala un problema</a>
+      <a href="https://github.com/acaland/incastro-turni-releases/releases">Tutte le versioni</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// evidenzia il download adatto al sistema e mostra il numero dell'ultima versione
+(function () {
+  var ua = navigator.userAgent, mobile = /iPhone|iPad|Android/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var os = mobile ? null : /Windows/.test(ua) ? "windows" : /Macintosh/.test(ua) ? "mac" : null;
+  if (os) {
+    var el = document.querySelector('.piattaforma[data-os="' + os + '"]');
+    el.classList.add("consigliata");
+    el.querySelector(".etichetta-consigliata").textContent = "Per il tuo computer";
+  }
+  fetch("https://api.github.com/repos/acaland/incastro-turni-releases/releases/latest")
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (r) { if (r && r.tag_name) document.getElementById("versione").textContent = r.tag_name.replace(/^v/, ""); })
+    .catch(function () {});
+  document.querySelectorAll(".nav .voci a").forEach(function (a) {
+    a.addEventListener("click", function () { document.getElementById("nav").classList.remove("aperto"); });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guida di Incastro Turni</title>
+<style>
+  :root {
+    --testo: #1f2328; --tenue: #5f6b76; --bordo: #d8dce0; --fondo: #f6f7f9; --carta: #fff;
+    --blu: #1d5fbf; --blu-chiaro: #eaf1fb; --arancio: #e8590c; --arancio-chiaro: #fff1e7;
+    --verde: #2e7d32; --verde-chiaro: #e7f5e8; --rosso: #c62828; --rosso-chiaro: #fdecea; --scuro: #17324d;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+         font-size: 16px; line-height: 1.55; color: var(--testo); background: var(--fondo); }
+  .barra { background: var(--scuro); color: white; padding: 10px 24px; display: flex; gap: 18px; align-items: center;
+           position: sticky; top: 0; z-index: 5; }
+  .barra b { font-size: 1.05rem; } .barra a { color: #cfe0f3; text-decoration: none; }
+  .barra .spinta { flex: 1; }
+  .bottone { display: inline-block; background: var(--blu); color: white !important; padding: 6px 14px; border-radius: 6px;
+             text-decoration: none; font-weight: 600; }
+  main { max-width: 980px; margin: 0 auto; padding: 28px 24px 80px; }
+  h1 { font-size: 2rem; margin: 0 0 6px; }
+  h2 { font-size: 1.55rem; margin: 56px 0 6px; padding-top: 18px; border-top: 3px solid var(--scuro); }
+  h2 .parte { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--arancio); }
+  h3 { font-size: 1.2rem; margin: 34px 0 6px; }
+  h4 { margin: 20px 0 4px; }
+  p, li { max-width: 78ch; }
+  a { color: var(--blu); }
+  .sottotitolo { color: var(--tenue); font-size: 1.1rem; margin: 0 0 20px; }
+  .indice { background: var(--carta); border: 1px solid var(--bordo); border-radius: 10px; padding: 14px 22px; }
+  .indice ol { margin: 6px 0; padding-left: 22px; } .indice li { margin: 3px 0; }
+  .riquadro { border-radius: 10px; padding: 12px 18px; margin: 16px 0; border: 1px solid var(--bordo); background: var(--carta); }
+  .riquadro.consiglio { background: var(--verde-chiaro); border-color: #b9dfbb; }
+  .riquadro.attenzione { background: var(--arancio-chiaro); border-color: #f5c9a8; }
+  .riquadro.importante { background: var(--blu-chiaro); border-color: #bcd3f2; }
+  .riquadro > :first-child { margin-top: 0; } .riquadro > :last-child { margin-bottom: 0; }
+  .etichetta { font-weight: 700; display: block; margin-bottom: 2px; }
+  .passo { display: grid; grid-template-columns: 46px 1fr; gap: 0 14px; margin: 30px 0 10px; }
+  .passo .n { width: 40px; height: 40px; border-radius: 20px; background: var(--arancio); color: white; font-weight: 700;
+              font-size: 1.25rem; display: flex; align-items: center; justify-content: center; }
+  .passo h3 { margin: 4px 0 4px; }
+  .passo > div > p:first-of-type { margin-top: 2px; }
+  figure { margin: 14px 0 22px; break-inside: avoid; }
+  figure img { width: 100%; border: 1px solid var(--bordo); border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,.06); background: white; }
+  figure.stretta img { max-width: 680px; }
+  figcaption { color: var(--tenue); font-size: 0.92rem; margin-top: 6px; }
+  figcaption b { color: var(--testo); }
+  .tasto { display: inline-block; border: 1px solid #b9c0c7; border-bottom-width: 2px; border-radius: 5px; padding: 0 6px;
+           font-size: 0.85em; background: white; font-family: ui-monospace, Menlo, monospace; }
+  .ui { font-weight: 600; background: #eef0f3; border-radius: 4px; padding: 0 5px; white-space: nowrap; }
+  .sigla { display: inline-block; min-width: 2.6em; text-align: center; border-radius: 4px; padding: 0 5px; font-weight: 600;
+           font-size: 0.9em; background: #e8ecf1; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 18px; background: var(--carta); font-size: 0.95rem; break-inside: avoid; }
+  th, td { border: 1px solid var(--bordo); padding: 6px 10px; text-align: left; vertical-align: top; }
+  th { background: #eef1f4; font-weight: 600; }
+  .breve { columns: 2; column-gap: 32px; } .breve li { break-inside: avoid; }
+  .riassunto-passi { counter-reset: p; list-style: none; padding: 0; }
+  .riassunto-passi li { counter-increment: p; padding: 6px 0 6px 44px; position: relative; }
+  .riassunto-passi li::before { content: counter(p); position: absolute; left: 0; top: 4px; width: 30px; height: 30px;
+           border-radius: 15px; background: var(--arancio); color: white; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .piede { margin-top: 60px; color: var(--tenue); font-size: 0.9rem; border-top: 1px solid var(--bordo); padding-top: 12px; }
+  @media (max-width: 700px) { .breve { columns: 1; } }
+  @media print {
+    @page { size: A4; margin: 14mm 13mm 16mm; }
+    body { background: white; font-size: 11pt; }
+    .barra, .solo-schermo { display: none !important; }
+    main { max-width: none; padding: 0; }
+    h2 { break-before: page; margin-top: 0; border-top: 0; padding-top: 0; }
+    h3, h4, .passo .n { break-after: avoid; }
+    .passo { display: block; margin-top: 18px; }
+    .passo .n { width: 30px; height: 30px; font-size: 1rem; float: left; margin: 2px 10px 0 0; }
+    figure img { box-shadow: none; max-height: 150mm; width: auto; max-width: 100%; display: block; margin: 0 auto; }
+    figcaption { text-align: left; }
+    a { color: var(--testo); text-decoration: none; }
+    .copertina { min-height: 250mm; padding-top: 30mm; }
+  }
+</style>
+</head>
+<body>
+<div class="barra">
+  <b>Guida di Incastro Turni</b>
+  <span class="spinta"></span>
+  <a class="bottone" href="guida-turni.pdf" download>Scarica in PDF</a>
+  <a href="../">← Torna al sito</a>
+</div>
+<main>
+
+<section class="copertina">
+  <h1>Incastro Turni – Guida per il responsabile</h1>
+  <p class="sottotitolo">Come preparare il turno del mese: dalla raccolta dei desiderata al PDF da far firmare.</p>
+
+  <div class="riquadro importante">
+    <span class="etichetta">Se hai poco tempo, leggi solo la Parte 1.</span>
+    In sei passaggi spiega come si fa il turno di un mese normale: per la maggior parte dei mesi basta quella.
+    Le parti successive servono quando c'è qualcosa da sistemare o da cambiare e si possono consultare al momento del bisogno.
+  </div>
+
+  <div class="indice">
+    <b>Contenuto</b>
+    <ol>
+      <li><a href="#parte1">Il turno del mese in sei passaggi</a></li>
+      <li><a href="#parte2">Correggere il turno e rigenerarlo</a> (cambi a mano, richieste del direttore, cambi dopo la pubblicazione)</li>
+      <li><a href="#parte3">I desiderata in dettaglio</a></li>
+      <li><a href="#parte4">Regole del mese e ambulatori</a> (aggiungere, sospendere, cambiare)</li>
+      <li><a href="#parte5">Leggere il risultato</a> (controlli, equità, turno impossibile)</li>
+      <li><a href="#parte6">PDF e invio ai medici</a></li>
+      <li><a href="#parte7">Medici e attività</a> (arrivi, partenze, nuove sigle)</li>
+      <li><a href="#parte8">Le pagine dell'applicazione in breve</a></li>
+      <li><a href="#parte9">Domande frequenti</a></li>
+    </ol>
+  </div>
+  <p class="tenue">Nelle immagini i nomi dei medici sono di fantasia: la guida simula la preparazione del turno di novembre 2026.
+    I riquadri arancioni numerati indicano dove cliccare.</p>
+</section>
+
+<!-- ======================================================================= PARTE 1 -->
+<h2 id="parte1" class="prima"><span class="parte">Parte 1 · Per iniziare</span>Il turno del mese in sei passaggi</h2>
+<p>L'idea è semplice: <b>tu inserisci i desiderata, l'applicazione propone il turno rispettando le regole del reparto,
+  tu lo controlli e lo pubblichi</b>. Le regole (notti, smonti, weekend, reparto, ambulatori, equità…) sono già
+  caricate: non devi reinserirle ogni mese.</p>
+
+<ol class="riassunto-passi">
+  <li><b>Apri il mese</b> dalla pagina Mesi.</li>
+  <li><b>Inserisci i desiderata</b>: importa il foglio Excel di raccolta oppure scrivili nella griglia.</li>
+  <li><b>Dai un'occhiata alle regole del mese</b>: di solito non c'è nulla da cambiare.</li>
+  <li><b>Genera</b> il turno: un clic e circa 30 secondi di attesa.</li>
+  <li><b>Controlla</b> il risultato: se le violazioni rigide sono 0, il turno rispetta tutte le regole.</li>
+  <li><b>Pubblica</b>, scarica il <b>PDF</b> e invia il turno ai medici.</li>
+</ol>
+
+<div class="passo"><div class="n">1</div><div>
+  <h3>Apri il mese</h3>
+  <p>Nella pagina <span class="ui">Mesi</span> scegli il mese (1) e premi <span class="ui">Apri / crea mese</span> (2).
+    Se il mese esiste già, puoi anche cliccare direttamente sulla sua scheda nell'elenco.</p>
+  <figure><img src="img/01-mesi.png" alt="Pagina Mesi">
+    <figcaption><b>Pagina Mesi.</b> Ogni scheda è un mese con il suo stato: <i>raccolta desiderata</i>, <i>bozza</i> (c'è un turno da
+      approvare), <i>pubblicato</i> (turno ufficiale), <i>storico</i> (turno importato dai vecchi fogli Excel).</figcaption></figure>
+  <p>Il mese si apre sulla prima delle cinque schede in alto, <span class="ui">1 · Desiderata</span>: le schede seguono l'ordine del lavoro.</p>
+  <figure><img src="img/02-desiderata-vuota.png" alt="Mese appena creato"><figcaption><b>Il mese appena creato.</b> Le cinque schede in alto
+    sono i passaggi del lavoro: Desiderata → Regole del mese → Genera e rivedi → Equità → PDF e visualizzatore.</figcaption></figure>
+</div></div>
+
+<div class="passo"><div class="n">2</div><div>
+  <h3>Inserisci i desiderata</h3>
+  <p>Il modo più rapido è importare il foglio Excel in cui hai raccolto le richieste, quello di sempre.
+    Premi <span class="ui">Importa dal foglio Excel</span>, scegli il file (1), controlla che sia selezionato il foglio del mese (2) e premi
+    <span class="ui">Importa</span> (3).</p>
+  <figure><img src="img/03-importa-desiderata.png" alt="Import desiderata"><figcaption><b>Import dal foglio Excel.</b> L'applicazione riconosce da sola i
+    fogli del file e propone quello del mese aperto. L'import sostituisce i desiderata già inseriti per quel mese.</figcaption></figure>
+  <p>Dopo l'import ogni cella è colorata secondo come è stata capita: grigio per le assenze (F, AGP, Mal), rosa per i «NO»
+    (es. <i>NO P N</i> = niente pomeriggio né notte), verde per le richieste (es. <i>N</i> = vorrei la notte), giallo per «solo mattina».
+    Un colore <b>arancione</b> indica un testo non capito: correggilo.</p>
+  <figure><img src="img/04-desiderata-importati.png" alt="Desiderata importati"><figcaption><b>Desiderata importati.</b> Passando con il mouse su una
+    cella vedi come è stata interpretata. La legenda dei colori è sotto la griglia.</figcaption></figure>
+  <p>Per aggiungere o correggere una richiesta arrivata dopo, <b>scrivi direttamente nella cella</b> (1) e premi <span class="ui">Salva</span> (2).
+    Per cancellarla, svuota la cella e salva.</p>
+  <figure><img src="img/05-desiderata-modifica.png" alt="Modifica di un desiderato"><figcaption><b>Una richiesta aggiunta a mano</b>
+    (in azzurro finché non salvi). Il pulsante Salva indica quante celle hai cambiato.</figcaption></figure>
+</div></div>
+
+<div class="passo"><div class="n">3</div><div>
+  <h3>Dai un'occhiata alle regole del mese</h3>
+  <p>Apri la scheda <span class="ui">2 · Regole del mese</span>. In alto il riquadro <b>Ambulatori e attività</b> elenca cosa è programmato nel
+    mese. Se non ci sono novità (ambulatori sospesi, nuovi, spostati) <b>non devi fare nulla</b>: valgono le regole di sempre.
+    Come si cambiano è spiegato nella <a href="#parte4">Parte 4</a>.</p>
+  <figure><img src="img/06-regole-mese.png" alt="Regole del mese"><figcaption><b>Regole del mese.</b> Ogni riga è un ambulatorio con giorni, numero di
+    medici e chi può farlo, scritti in italiano.</figcaption></figure>
+</div></div>
+
+<div class="passo"><div class="n">4</div><div>
+  <h3>Genera il turno</h3>
+  <p>Apri la scheda <span class="ui">3 · Genera e rivedi</span> e premi <span class="ui">Genera nuova proposta</span>.</p>
+  <figure><img src="img/11-genera-vuoto.png" alt="Prima della generazione"><figcaption><b>Prima della generazione.</b> Accanto al pulsante c'è il
+    tempo massimo di calcolo: 30 secondi vanno bene quasi sempre.</figcaption></figure>
+  <p>Una barra mostra l'avanzamento. Il programma prova moltissime combinazioni e tiene la migliore trovata nel tempo concesso.</p>
+  <figure><img src="img/12-genera-in-corso.png" alt="Generazione in corso"><figcaption><b>Generazione in corso.</b> Puoi aspettare su questa pagina:
+    al termine compare il messaggio «Nuova proposta pronta».</figcaption></figure>
+</div></div>
+
+<div class="passo"><div class="n">5</div><div>
+  <h3>Controlla il risultato</h3>
+  <p>Il turno compare nella griglia, con gli stessi colori del foglio Excel. Guarda soprattutto la riga dei riepiloghi (1):</p>
+  <ul>
+    <li><b>violazioni rigide</b> in verde con <b>0</b>: il turno rispetta tutte le regole obbligatorie;</li>
+    <li><b>preferenze non soddisfatte</b> in giallo: richieste «se possibile» che non si è riusciti ad accontentare;
+      il motivo è nel pannello a destra (2), quasi sempre assenze (es. «nessun medico disponibile per NEU quella settimana»);</li>
+    <li><b>desiderata non rispettati</b>: quanti desiderata non è stato possibile soddisfare.</li>
+  </ul>
+  <figure><img src="img/13-turno-generato.png" alt="Turno generato"><figcaption><b>Il turno generato.</b> In basso le righe di copertura (N, P, MR1…)
+    contano i medici per giorno: uno 0 in rosso indica un buco. Passa il mouse su una cella per vedere attività, desiderata e
+    controlli. Il triangolino blu nell'angolo indica un desiderato rispettato, rosso uno non rispettato.</figcaption></figure>
+  <div class="riquadro consiglio">Se il turno ti va bene così, passa direttamente al punto 6. Se vuoi cambiare qualcosa, vedi la
+    <a href="#parte2">Parte 2</a>: si cambia una cella a mano e si fa ricalcolare il resto.</div>
+</div></div>
+
+<div class="passo"><div class="n">6</div><div>
+  <h3>Pubblica, scarica il PDF e invia ai medici</h3>
+  <p>Quando il turno è quello giusto premi <span class="ui">Pubblica</span> (1): diventa il turno ufficiale del mese e il riferimento per il mese
+    successivo (smonti, recuperi, equità). Con <span class="ui">PDF</span> (2) ottieni il documento da far firmare e consegnare in amministrazione.</p>
+  <figure><img src="img/19-pubblica.png" alt="Pubblica"><figcaption><b>Pubblica e PDF.</b> Il PDF di una versione non pubblicata riporta la
+    scritta «BOZZA», quello di una versione pubblicata «APPROVATO».</figcaption></figure>
+  <figure class="stretta"><img src="img/22-pdf.png" alt="PDF del turno"><figcaption><b>Il PDF</b>: griglia del mese, legenda delle sigle usate e spazi per
+    le firme. La seconda pagina riporta i conteggi per medico (notti, pomeriggi, sabati, festivi…).</figcaption></figure>
+  <p>Infine, nella scheda <span class="ui">5 · PDF e visualizzatore</span>, premi <span class="ui">Esporta per il visualizzatore</span>:
+    l'applicazione prepara il messaggio con il link da inviare ai medici su WhatsApp o per e-mail (dettagli nella <a href="#parte6">Parte 6</a>).</p>
+</div></div>
+
+<div class="riquadro importante"><span class="etichetta">Fatto.</span> Questo è il lavoro di un mese normale. Tutto il resto della guida
+  spiega cosa fare quando serve cambiare qualcosa.</div>
+
+<!-- ======================================================================= PARTE 2 -->
+<h2 id="parte2"><span class="parte">Parte 2</span>Correggere il turno e rigenerarlo</h2>
+<p>Capita spesso: il direttore chiede che un medico faccia una certa attività in un certo giorno, un collega cambia idea, si
+  vuole spostare un turno. Il modo di lavorare è sempre lo stesso: <b>cambi a mano solo le celle che ti interessano, le «fissi»
+  e chiedi al programma di sistemare il resto</b>.</p>
+
+<h3>Esempio: «DE LUCA il 10 deve fare consulenze»</h3>
+
+<div class="passo"><div class="n">1</div><div>
+  <h4>Seleziona la cella</h4>
+  <p>Clicca sulla cella (1). Nel pannello a destra (2) compaiono il dettaglio della cella, il desiderato del medico per quel giorno
+    ed eventuali segnalazioni.</p>
+  <figure><img src="img/14-cella-selezionata.png" alt="Cella selezionata"><figcaption><b>Cella selezionata</b> (bordo blu). Ti puoi spostare tra le celle
+    con le frecce della tastiera.</figcaption></figure>
+</div></div>
+
+<div class="passo"><div class="n">2</div><div>
+  <h4>Scrivi la nuova sigla</h4>
+  <p>Con la cella selezionata <b>inizia a scrivere</b> la sigla (es. <span class="tasto">C</span><span class="tasto">O</span><span class="tasto">N</span><span class="tasto">S</span>):
+    si apre un riquadro (1) che suggerisce le sigle del catalogo. Premi <span class="tasto">Invio</span> per confermare,
+    <span class="tasto">Esc</span> per annullare. In alternativa fai doppio clic sulla cella.</p>
+  <figure><img src="img/15-cella-editor.png" alt="Scrittura della sigla"><figcaption><b>Scrittura della sigla.</b> Le sigle sono quelle del foglio
+    (MS, CONS, CONS*, ASP, N…); maiuscole e minuscole sono uguali.</figcaption></figure>
+</div></div>
+
+<div class="passo"><div class="n">3</div><div>
+  <h4>Fissa la cella e guarda il controllo</h4>
+  <p>Premi la barra <span class="tasto">Spazio</span> per <b>fissare</b> la cella (bordo scuro e pallino in alto a sinistra) (1). Una cella fissata non
+    verrà più toccata dal programma. Il controllo si aggiorna subito (2): qui la modifica ha lasciato scoperto l'ambulatorio
+    ARR del 10 e portato le consulenze a 3. Sono le due violazioni rigide segnalate in rosso nel pannello a destra.</p>
+  <figure><img src="img/16-cella-fissata.png" alt="Cella fissata"><figcaption><b>Dopo la modifica.</b> Il controllo segnala subito cosa non torna; non serve
+    sistemarlo a mano.</figcaption></figure>
+</div></div>
+
+<div class="passo"><div class="n">4</div><div>
+  <h4>Rigenera con le celle fissate</h4>
+  <p>Premi <span class="ui">Rigenera con le celle fissate</span> (1). Con la casella <b>cambia il meno possibile</b> attiva (consigliato) il
+    programma ricalcola il turno <b>tenendo le celle fissate e spostando il minimo indispensabile</b>.</p>
+  <figure><img src="img/17-rigenera.png" alt="Rigenera"><figcaption><b>Rigenera.</b> Tra parentesi il numero di celle fissate.</figcaption></figure>
+  <figure><img src="img/18-rigenerato.png" alt="Turno rigenerato"><figcaption><b>Risultato: la versione 2</b> (1). DE LUCA fa consulenze il 10 come
+    richiesto, ARR è passato a PELLEGRINI e le violazioni rigide sono tornate a 0. Le altre celle sono rimaste come prima.</figcaption></figure>
+</div></div>
+
+<h3>Le versioni</h3>
+<p>Ogni generazione crea una <b>nuova versione</b> (v1, v2, v3…) senza cancellare le precedenti. Il menu a tendina in alto a sinistra
+  le elenca con data e numero di violazioni: puoi tornare a una versione precedente in qualsiasi momento e pubblicare quella che preferisci.
+  Le versioni che non servono si tolgono con <span class="ui">Elimina</span> (la versione pubblicata non si può eliminare).</p>
+
+<h3>Riepilogo dei comandi della griglia</h3>
+<table>
+  <tr><th>Per…</th><th>fai così</th></tr>
+  <tr><td>scegliere una cella</td><td>clic sulla cella, oppure le frecce <span class="tasto">←</span> <span class="tasto">→</span> <span class="tasto">↑</span> <span class="tasto">↓</span></td></tr>
+  <tr><td>cambiare l'attività</td><td>scrivi la sigla e premi <span class="tasto">Invio</span> (o doppio clic sulla cella)</td></tr>
+  <tr><td>lasciare libero il medico quel giorno</td><td><span class="tasto">Canc</span> oppure <span class="tasto">⌫</span></td></tr>
+  <tr><td>fissare / sbloccare una cella</td><td><span class="tasto">Spazio</span></td></tr>
+  <tr><td>due attività nella stessa cella (es. AI e PAL)</td><td>scrivi <i>AI/PAL</i></td></tr>
+  <tr><td>far ricalcolare il resto</td><td><span class="ui">Rigenera con le celle fissate</span></td></tr>
+  <tr><td>ricominciare da zero</td><td><span class="ui">Genera nuova proposta</span> (le celle fissate non vengono considerate)</td></tr>
+</table>
+
+<div class="riquadro consiglio">
+  <span class="etichetta">Fissare anche le celle «buone».</span> Se una parte del turno ti piace già (es. tutti i weekend), fissala
+  prima di rigenerare: resterà identica.
+</div>
+
+<h3>Cambi chiesti dopo la pubblicazione</h3>
+<p>Una versione pubblicata non si modifica direttamente, per avere sempre traccia di cosa era stato approvato.</p>
+<ol>
+  <li>Seleziona la versione pubblicata e premi <span class="ui">Duplica per modificare</span>: nasce una copia in bozza.</li>
+  <li>Fai i cambi nella copia (celle a mano, ed eventualmente <span class="ui">Rigenera con le celle fissate</span>).</li>
+  <li>Premi <span class="ui">Pubblica</span> sulla nuova versione: diventa quella ufficiale, la precedente viene archiviata.</li>
+  <li>Scarica il nuovo PDF ed esporta di nuovo per il visualizzatore: i medici ricevono un link aggiornato che sostituisce il precedente.</li>
+</ol>
+
+<h3>Cambi che riguardano tutto il mese</h3>
+<p>Se la richiesta non riguarda un singolo giorno ma una regola («a novembre la robotica non si fa», «il sabato mattina servono due
+  medici») non serve cambiare le celle una a una: si cambia la regola del mese (vedi <a href="#parte4">Parte 4</a>) e si genera una
+  nuova proposta.</p>
+
+<!-- ======================================================================= PARTE 3 -->
+<h2 id="parte3"><span class="parte">Parte 3</span>I desiderata in dettaglio</h2>
+<p>I desiderata si scrivono come nel foglio Excel di raccolta. Questi sono i codici riconosciuti:</p>
+<table>
+  <tr><th>Scrivi</th><th>Significato</th><th>Come lo tratta il programma</th></tr>
+  <tr><td><b>F</b>, <b>AGP</b> (anche <i>AG P</i>), <b>Mal</b></td><td>ferie, aggiornamento, malattia</td><td>assenza: il medico non riceve turni. Nel turno compare
+    il codice (la malattia come «ASS», assente generico, per riservatezza)</td></tr>
+  <tr><td><b>NO</b></td><td>nessun turno quel giorno</td><td>il medico resta libero</td></tr>
+  <tr><td><b>NO P</b>, <b>NO N</b>, <b>NO P N</b> (anche <i>No P/N</i>), <b>NO G</b></td><td>niente pomeriggio / notte / 12 h</td><td>quei turni non gli vengono dati quel giorno</td></tr>
+  <tr><td><b>M</b> in un giorno feriale</td><td>solo mattina</td><td>niente pomeriggio, notte o 12 h</td></tr>
+  <tr><td><b>N</b>, <b>P</b>, <b>G</b>, <b>PM</b>, <b>M</b> di sabato, o un ambulatorio (es. <b>ASP</b>)</td><td>richiesta di quel turno</td><td>preferenza: viene data se possibile</td></tr>
+</table>
+
+<h4>«NO» vincolanti</h4>
+<p>La casella <span class="ui">«NO» vincolanti</span> (attiva di solito) fa rispettare i «NO» come obbligo. Se in un mese è impossibile
+  rispettarli tutti, il programma non si blocca: li tratta come preferenze fortissime, ne viola il minimo possibile e te lo
+  segnala con un avviso in giallo. I desiderata non rispettati compaiono nel filtro <span class="ui">desiderata</span> del pannello a destra.</p>
+
+<h4>Testi non riconosciuti</h4>
+<p>Una cella arancione contiene un testo che il programma non capisce (es. «chiedere a IP»): viene ignorata nella generazione e
+  segnalata in alto. Riscrivila con uno dei codici della tabella.</p>
+
+<div class="riquadro consiglio">Le ferie nel weekend possono anche non essere scritte: nel weekend chi non è di guardia è comunque libero.</div>
+
+<!-- ======================================================================= PARTE 4 -->
+<h2 id="parte4"><span class="parte">Parte 4</span>Regole del mese e ambulatori</h2>
+<p>Le regole sono di due tipi:</p>
+<ul>
+  <li><b>Regole base</b>: quelle del documento del reparto, valide tutti i mesi (una notte ogni notte, smonto dopo la notte, chi fa il
+    sabato pomeriggio fa la domenica notte, ambulatori con i loro giorni e medici, equità…). Si vedono e si cambiano nella pagina
+    <span class="ui">Regole base</span>.</li>
+  <li><b>Variazioni del mese</b>: eccezioni che valgono solo per un mese. Si gestiscono nella scheda <span class="ui">2 · Regole del mese</span>
+    e <b>non toccano gli altri mesi</b>.</li>
+</ul>
+
+<h3>Aggiungere un ambulatorio per il mese</h3>
+<p>Esempio: da novembre parte l'ambulatorio di riabilitazione cardiologica, il martedì, due volte al mese, con COLOMBO o DE LUCA.</p>
+<ol>
+  <li>In <span class="ui">2 · Regole del mese</span> premi <span class="ui">+ Ambulatorio nel mese</span>.</li>
+  <li>Se la sigla non esiste ancora, premi <span class="ui">+ nuova</span> accanto ad «Attività / ambulatorio» e inserisci codice, sigla e nome.</li>
+</ol>
+<figure class="stretta"><img src="img/07-nuova-attivita.png" alt="Nuova attività"><figcaption><b>Nuova sigla.</b> Il <i>codice</i> è l'identificativo interno,
+  la <i>sigla</i> è quello che si vede nella griglia e nel PDF. Le «altre grafie» servono a riconoscerla nei fogli Excel.</figcaption></figure>
+<ol start="3">
+  <li>Compila il modulo: <b>giorni</b> (feriali, martedì), <b>medici per giorno</b> (1), <b>chi può farlo</b> (solo questi: COLOMBO, DE LUCA),
+    e, se l'ambulatorio non si fa ogni martedì, <b>Non tutti i giorni indicati: un numero di sessioni</b> (al mese, massimo 2, obiettivo 2).</li>
+  <li>Sotto il modulo una riga verde riassume la regola in italiano: controlla che dica quello che intendi e premi <span class="ui">Salva</span>.</li>
+</ol>
+<figure><img src="img/08-nuovo-ambulatorio.png" alt="Modulo nuovo ambulatorio"><figcaption><b>Il modulo dell'ambulatorio.</b> «Natura»: <i>vincolo</i>
+  = va rispettato sempre; <i>preferenza</i> = va rispettato se possibile (consigliato per gli ambulatori: se mancano medici quel giorno il
+  turno si fa lo stesso e te lo segnala). «Peso» = quanto conta la preferenza rispetto alle altre (20 è un valore medio).</figcaption></figure>
+<div class="riquadro attenzione">Il riquadro «Descrivi la regola in italiano» in cima al modulo non è ancora attivo: in una versione
+  futura basterà scrivere la frase e il modulo si compilerà da solo.</div>
+
+<h3>Sospendere un ambulatorio per il mese</h3>
+<p>Nel riquadro <b>Ambulatori e attività</b> premi <span class="ui">Sospendi nel mese</span> sulla riga dell'ambulatorio (es. la robotica).
+  Il mese successivo tornerà regolarmente. Per annullare premi <span class="ui">Riattiva</span>.</p>
+<figure><img src="img/09-sospendi.png" alt="Sospendi nel mese"><figcaption><b>Sospendi nel mese.</b> Vale solo per il mese aperto.</figcaption></figure>
+<figure><img src="img/10-regole-dopo.png" alt="Dopo le modifiche"><figcaption><b>Dopo le modifiche:</b> il nuovo ambulatorio A CARD (1) è in elenco
+  come «solo questo mese»; la robotica (2) è sbiadita perché sospesa.</figcaption></figure>
+
+<h3>Cambiare un ambulatorio solo per il mese</h3>
+<p>Per spostare un ambulatorio su altri giorni o con altri medici solo per un mese, premi <span class="ui">Cambia nel mese</span>: si apre
+  lo stesso modulo con i valori attuali. Salvando nasce una copia valida solo per il mese, che sostituisce la regola base; gli altri mesi non cambiano.</p>
+
+<h3>Altre variazioni del mese</h3>
+<p>Sotto il riquadro degli ambulatori ci sono le <b>Variazioni del mese</b> e l'elenco completo delle <b>Regole base</b>, ognuna con la
+  frase del documento da cui deriva. Per ogni regola base puoi:</p>
+<ul>
+  <li><span class="ui">Disattiva nel mese</span>: la regola non vale per questo mese;</li>
+  <li><span class="ui">Modifica solo nel mese</span>: copia modificabile valida solo per questo mese (es. «sabato mattina due medici»).</li>
+</ul>
+<p>Con <span class="ui">+ Variazione del mese</span> si crea una regola di qualunque tipo (vedi sotto). Dopo aver cambiato le regole,
+  genera una nuova proposta.</p>
+
+<h3>Regole base: le regole di sempre</h3>
+<p>La pagina <span class="ui">Regole base</span> contiene le regole valide ogni mese. Cambiale solo quando cambia davvero
+  l'organizzazione del reparto (es. un ambulatorio passa stabilmente dal lunedì al martedì): la modifica vale per tutti i mesi
+  che genererai da quel momento; i turni già fatti non cambiano.</p>
+<figure><img src="img/26-regole-base.png" alt="Regole base"><figcaption><b>Regole base.</b> Per ogni regola: tipo, nome, vincolo o preferenza, descrizione
+  in italiano e frase d'origine. <i>Spegni</i> la disattiva in tutti i mesi; <i>Modifica</i> apre l'editor.</figcaption></figure>
+<p>Le regole che non riguardano un ambulatorio (sequenze, recuperi, equità…) si modificano con i parametri scritti in forma tecnica
+  (JSON). È una modifica da fare con calma, eventualmente con chi ha configurato l'applicazione: l'editor verifica i parametri
+  mentre scrivi e non salva una regola sbagliata.</p>
+<figure class="stretta"><img src="img/27-editor-regola.png" alt="Editor di una regola"><figcaption><b>Editor di una regola.</b> La riga verde in fondo conferma che
+  i parametri sono validi e riassume la regola.</figcaption></figure>
+<table>
+  <tr><th>Tipo di regola</th><th>Serve per…</th><th>Esempio</th></tr>
+  <tr><td>Copertura</td><td>quanti medici servono per un'attività e in quali giorni</td><td>un MR1 ogni feriale; ASP lun-mar-gio-ven</td></tr>
+  <tr><td>Idoneità</td><td>chi non può fare cosa</td><td>IP solo pomeriggi; BN niente notti</td></tr>
+  <tr><td>Conteggio</td><td>quante volte al mese per medico</td><td>IP 1–2 pomeriggi al mese</td></tr>
+  <tr><td>Sequenza</td><td>legami tra giorni</td><td>dopo N lo smonto; sabato PM → domenica N</td></tr>
+  <tr><td>Recupero</td><td>giorni di recupero dopo le guardie</td><td>RCG dopo la domenica 12 h</td></tr>
+  <tr><td>Blocco settimanale</td><td>stesso medico per tutta la settimana</td><td>MR1 e MR2</td></tr>
+  <tr><td>Affiancamento</td><td>i nuovi solo con un senior</td><td>ASP a ottobre</td></tr>
+  <tr><td>Riempimento</td><td>nessun medico senza attività nei feriali</td><td>chi resta libero fa MS</td></tr>
+  <tr><td>Distanza</td><td>non troppo ravvicinati</td><td>notti a 4 giorni, weekend non consecutivi</td></tr>
+  <tr><td>Rientro ferie</td><td>attività al rientro</td><td>rientro pomeridiano</td></tr>
+  <tr><td>Equità</td><td>ripartire turni pesanti in modo equo</td><td>notti, festivi, sabati, pomeriggi</td></tr>
+  <tr><td>Assegnazione</td><td>un'attività fissa in un giorno</td><td>«FDL fa LAM il 7»</td></tr>
+</table>
+
+<!-- ======================================================================= PARTE 5 -->
+<h2 id="parte5"><span class="parte">Parte 5</span>Leggere il risultato</h2>
+
+<h3>La pagina «Genera e rivedi»</h3>
+<figure><img src="img/13b-turno-pagina.png" alt="Pagina completa del turno"><figcaption><b>La pagina completa.</b></figcaption></figure>
+<table>
+  <tr><th>Zona</th><th>Cosa contiene</th></tr>
+  <tr><td>Barra in alto</td><td>scelta della versione, tempo di calcolo, <i>Genera nuova proposta</i>, <i>Rigenera con le celle fissate</i>,
+    <i>cambia il meno possibile</i>, <i>Duplica per modificare</i> (per le versioni pubblicate), <i>Pubblica</i>, <i>PDF</i>, <i>Elimina</i></td></tr>
+  <tr><td>Riga dei riepiloghi</td><td>violazioni rigide, preferenze non soddisfatte, desiderata non rispettati, tempo di calcolo</td></tr>
+  <tr><td>«Cosa questo turno impone al mese successivo»</td><td>es. «SN il giorno 1» per chi fa la notte dell'ultimo giorno, la domenica dopo un
+    sabato a fine mese, i recuperi da dare all'inizio del mese dopo. Il mese successivo ne terrà conto da solo</td></tr>
+  <tr><td>«Penalità della soluzione»</td><td>dettaglio tecnico di quanto «costa» ogni compromesso: serve solo per capire perché una preferenza
+    non è stata soddisfatta</td></tr>
+  <tr><td>Griglia</td><td>medici × giorni; weekend e festivi in viola; a destra i conteggi del mese per medico (N notti, P pomeriggi,
+    SAB sabati, FEST domeniche e festivi, MR giorni di reparto, CONS consulenze, AMB ambulatori)</td></tr>
+  <tr><td>Righe in fondo alla griglia</td><td>quanti medici fanno N, P, MR1, MR2, MS, CONS, M, PM, G ogni giorno; in rosso dove ne manca uno</td></tr>
+  <tr><td>Pannello a destra</td><td>dettaglio della cella selezionata ed elenco delle segnalazioni, filtrabile: <i>rigide</i> (da correggere),
+    <i>morbide</i> (preferenze non soddisfatte), <i>desiderata</i>. Clic su una segnalazione = vai alla cella</td></tr>
+</table>
+<table>
+  <tr><th>Nella griglia vedi…</th><th>significa</th></tr>
+  <tr><td>bordo rosso sulla cella</td><td>la cella viola una regola obbligatoria</td></tr>
+  <tr><td>linea gialla in basso nella cella</td><td>una preferenza non soddisfatta in quella cella</td></tr>
+  <tr><td>triangolino blu / rosso nell'angolo</td><td>c'è un desiderato, rispettato / non rispettato</td></tr>
+  <tr><td>bordo scuro e pallino</td><td>cella fissata</td></tr>
+  <tr><td>cella a righe grigie</td><td>medico non in servizio quel giorno (prima dell'arrivo o dopo la partenza)</td></tr>
+</table>
+
+<h3>Violazioni rigide e preferenze</h3>
+<p>Le <b>violazioni rigide</b> sono regole obbligatorie non rispettate: un turno generato non ne ha mai. Compaiono solo dopo
+  modifiche a mano, finché non rigeneri. Le <b>preferenze non soddisfatte</b> sono normali: indicano cose «se possibile» che
+  quel mese non lo erano (es. un ambulatorio il cui medico è in ferie).</p>
+
+<h3>Equità</h3>
+<p>La scheda <span class="ui">4 · Equità</span> mostra per notti, festivi, sabati, pomeriggi, reparto, consulenze e ambulatori quanti
+  turni ha ciascun medico (<b>Fatti</b>) e quanti ne spetterebbero (<b>Obiettivo</b>). L'obiettivo tiene conto dei giorni di presenza
+  nel mese e di quanto il medico ha fatto nei mesi precedenti (<b>Saldo storico</b>: positivo = ne ha fatti di più). Le colonne a
+  destra riportano i mesi passati.</p>
+<figure><img src="img/20-equita.png" alt="Equità"><figcaption><b>Equità.</b> La barra mostra i turni fatti, il trattino scuro l'obiettivo; una barra
+  arancione segnala uno scarto di almeno un turno e mezzo.</figcaption></figure>
+
+<h3>Se il turno è impossibile</h3>
+<p>Se le regole e le assenze non lasciano alcuna soluzione (es. troppi medici in ferie lo stesso giorno), al posto del turno compare
+  un riquadro rosso con <b>i vincoli in conflitto</b>.</p>
+<figure><img src="img/28-impossibile.png" alt="Turno impossibile"><figcaption><b>Turno impossibile</b>: il 3 dicembre restano solo due medici, non
+  bastano per notte, pomeriggio e spasticità.</figcaption></figure>
+<p>Cosa fare, in ordine:</p>
+<ol>
+  <li>controlla i desiderata di quel giorno (un errore di battitura? ferie sovrapposte da rivedere con i colleghi?);</li>
+  <li>se un ambulatorio non si può fare, sospendilo per quel giorno o rendilo «preferenza»;</li>
+  <li>se il caso è eccezionale, cambia la regola solo per il mese (es. una copertura con meno medici) e genera di nuovo.</li>
+</ol>
+
+<!-- ======================================================================= PARTE 6 -->
+<h2 id="parte6"><span class="parte">Parte 6</span>PDF e invio ai medici</h2>
+<p>La scheda <span class="ui">5 · PDF e visualizzatore</span> riunisce le due uscite del turno.</p>
+<figure><img src="img/21-esporta.png" alt="PDF e visualizzatore"><figcaption><b>PDF e visualizzatore.</b> A sinistra il PDF per l'amministrazione, a destra
+  i dati per l'app dei medici.</figcaption></figure>
+<ul>
+  <li><b>PDF</b>: griglia, legenda, firme (responsabile, direttore, data) e riepilogo dei conteggi. Si stampa o si invia in amministrazione.</li>
+  <li><b>Esporta per il visualizzatore</b>: prepara i turni per l'app che i medici usano sul telefono. Con <i>crea anche il link cifrato</i>
+    compare il messaggio pronto da incollare nel gruppo WhatsApp o in una e-mail, con il pulsante <span class="ui">Copia il messaggio</span>.</li>
+</ul>
+<div class="riquadro attenzione">Il <b>codice del reparto</b> che serve per aprire il link si comunica a voce o in reparto, mai nello stesso
+  messaggio del link. Se correggi il turno dopo l'invio, esporta di nuovo e manda il nuovo link: sostituisce quello vecchio sui telefoni.</div>
+
+<!-- ======================================================================= PARTE 7 -->
+<h2 id="parte7"><span class="parte">Parte 7</span>Medici e attività</h2>
+
+<h3>Medici</h3>
+<p>La pagina <span class="ui">Medici</span> elenca i medici del reparto con sigla, cognome, tag, periodo di servizio, mesi di storico e
+  numero di regole che li citano. L'ordine (frecce ↑↓) è quello delle griglie e del PDF.</p>
+<figure><img src="img/23-medici.png" alt="Medici"><figcaption><b>Pagina Medici.</b></figcaption></figure>
+<ul>
+  <li><b>Nuovo medico</b>: <span class="ui">+ Nuovo medico</span>, con sigla (quella usata nelle regole), cognome e data di inizio servizio.</li>
+  <li><b>Medico che lascia il reparto</b>: <span class="ui">Modifica</span> → «In servizio fino al». Da quel giorno non riceve turni
+    e dai mesi successivi non compare più, ma resta nei turni passati.</li>
+  <li><b>Eliminare</b> si può solo per un medico inserito per errore (senza turni salvati e non citato da regole). Chi ha lavorato non si
+    elimina, perché il suo storico serve per i recuperi a cavallo del mese e per l'equità.</li>
+  <li><b>Tag</b>: etichette usate dalle regole (es. <i>nuovo</i> per gli affiancamenti, <i>neurologo</i>).</li>
+</ul>
+<figure class="stretta"><img src="img/24-medico-modifica.png" alt="Modifica medico"><figcaption><b>Modifica di un medico.</b> Cambiando la sigla vengono
+  aggiornati anche desiderata, turni e regole che la usano.</figcaption></figure>
+
+<h3>Attività e ambulatori</h3>
+<p>La pagina <span class="ui">Attività</span> è il <b>vocabolario delle sigle</b>, valido per tutti i mesi: guardie, reparto, ambulatori,
+  altre attività, riposi e assenze, ciascuno con colore e orario. Aggiungere una sigla qui <b>non la mette in turno</b>: per quello serve
+  una regola di copertura (<a href="#parte4">Parte 4</a>).</p>
+<figure><img src="img/25-attivita.png" alt="Attività"><figcaption><b>Pagina Attività.</b> «Usata nei turni» e «Regole» dicono dove compare ogni sigla.</figcaption></figure>
+<table>
+  <tr><th>Se vuoi…</th><th>fai così</th></tr>
+  <tr><td>un ambulatorio nuovo da un certo mese</td><td>Regole del mese → <i>+ Ambulatorio nel mese</i> → <i>+ nuova</i> (se vale anche dopo: Regole base → <i>+ Ambulatorio</i>)</td></tr>
+  <tr><td>toglierlo per un mese</td><td>Regole del mese → <i>Sospendi nel mese</i></td></tr>
+  <tr><td>chiuderlo per sempre</td><td>Regole base → <i>Spegni</i> sulla sua regola; poi, se vuoi, Attività → <i>Modifica</i> → <i>archiviata</i></td></tr>
+  <tr><td>cambiarne nome o sigla</td><td>Attività → <i>Modifica</i> (il codice resta lo stesso, quindi i turni passati restano leggibili)</td></tr>
+</table>
+<p>Una sigla già usata nei turni non si elimina, si <b>archivia</b>: non viene più proposta, ma i turni passati restano leggibili.</p>
+
+<!-- ======================================================================= PARTE 8 -->
+<h2 id="parte8"><span class="parte">Parte 8</span>Le pagine dell'applicazione in breve</h2>
+<table>
+  <tr><th>Pagina</th><th>Cosa c'è</th><th>Quando si usa</th></tr>
+  <tr><td><b>Mesi</b></td><td>elenco dei mesi con stato; apertura di un mese; <i>Importa storico da Excel</i> per caricare i vecchi turni fatti a mano</td><td>ogni mese</td></tr>
+  <tr><td>Mese → <b>1 · Desiderata</b></td><td>griglia dei desiderata; import dal foglio Excel; casella «NO» vincolanti; legenda</td><td>ogni mese</td></tr>
+  <tr><td>Mese → <b>2 · Regole del mese</b></td><td>ambulatori del mese (sospendi, cambia, aggiungi); variazioni; regole base attive nel mese</td><td>quando cambia qualcosa</td></tr>
+  <tr><td>Mese → <b>3 · Genera e rivedi</b></td><td>generazione, griglia modificabile, controlli, versioni, pubblicazione, PDF</td><td>ogni mese</td></tr>
+  <tr><td>Mese → <b>4 · Equità</b></td><td>turni per medico contro l'obiettivo, con lo storico dei mesi precedenti</td><td>per controllo o in caso di contestazioni</td></tr>
+  <tr><td>Mese → <b>5 · PDF e visualizzatore</b></td><td>PDF per l'amministrazione; esportazione e link per i telefoni dei medici</td><td>ogni mese, dopo la pubblicazione</td></tr>
+  <tr><td><b>Regole base</b></td><td>regole valide per tutti i mesi, con l'editor</td><td>raramente</td></tr>
+  <tr><td><b>Attività</b></td><td>catalogo delle sigle e degli ambulatori</td><td>quando nasce o chiude un ambulatorio</td></tr>
+  <tr><td><b>Medici</b></td><td>anagrafica, periodo di servizio, ordine</td><td>quando arriva o lascia un medico</td></tr>
+</table>
+
+<h3>Sigle principali</h3>
+<ul class="breve">
+  <li><span class="sigla">N</span> guardia notte (20–8)</li>
+  <li><span class="sigla">SN</span> smontante notte</li>
+  <li><span class="sigla">G</span> guardia festiva 12 h (8–20)</li>
+  <li><span class="sigla">RCG</span> recupero dopo la guardia</li>
+  <li><span class="sigla">M</span> sabato mattina</li>
+  <li><span class="sigla">PM</span> sabato pomeriggio</li>
+  <li><span class="sigla">P</span> pomeriggio feriale</li>
+  <li><span class="sigla">MR1</span> medico di reparto USU</li>
+  <li><span class="sigla">MR2</span> medico di reparto UGC</li>
+  <li><span class="sigla">MS</span> medico di supporto</li>
+  <li><span class="sigla">CONS</span> consulenze</li>
+  <li><span class="sigla">CONS*</span> aggiornamento cartelle DH</li>
+  <li><span class="sigla">PAL</span> palestra e DH</li>
+  <li><span class="sigla">A</span>, <span class="sigla">ARR</span> ambulatori generali</li>
+  <li><span class="sigla">ASP</span> spasticità</li>
+  <li><span class="sigla">F</span> ferie · <span class="sigla">AGP</span> aggiornamento · <span class="sigla">ASS</span> assente</li>
+</ul>
+<p>L'elenco completo, con nomi e orari, è nella pagina <span class="ui">Attività</span>.</p>
+
+<!-- ======================================================================= PARTE 9 -->
+<h2 id="parte9"><span class="parte">Parte 9</span>Domande frequenti</h2>
+<h4>Devo reinserire le regole ogni mese?</h4>
+<p>No. Le regole base valgono sempre; ogni mese aggiungi solo le eccezioni, se ci sono.</p>
+<h4>Il programma sa chi ha fatto la notte l'ultimo giorno del mese scorso?</h4>
+<p>Sì, se il mese precedente è stato pubblicato nell'applicazione (o importato dal vecchio foglio Excel): smonti, recuperi e weekend a
+  cavallo dei due mesi vengono rispettati da soli.</p>
+<h4>Due proposte generate di fila sono diverse?</h4>
+<p>Possono esserlo, perché il programma cerca fra moltissime soluzioni equivalenti. Rispettano entrambe le regole: scegli quella che
+  preferisci. Per cambiare poco rispetto a una versione esistente usa <i>Rigenera con le celle fissate</i> con «cambia il meno possibile».</p>
+<h4>Ho fatto una modifica sbagliata: posso tornare indietro?</h4>
+<p>Sì: ogni generazione è una versione separata. Riseleziona dal menu la versione precedente, oppure correggi la cella a mano.</p>
+<h4>Quanto tempo di calcolo scegliere?</h4>
+<p>30 secondi bastano quasi sempre. Se in alto leggi «fattibile» invece di «ottimo» e vuoi provare a migliorare l'equità, rigenera
+  con 1 o 2 minuti.</p>
+<h4>Posso far fare due attività a un medico nello stesso giorno?</h4>
+<p>Sì, a mano: scrivi le due sigle separate da una barra (es. <i>AI/PAL</i>). Il programma di suo ne assegna una sola.</p>
+<h4>I dati dove sono?</h4>
+<p>Sul computer dove gira l'applicazione. Ai medici arriva solo il link cifrato, che senza il codice del reparto non si può leggere.</p>
+
+<p class="piede">Incastro Turni · guida per il responsabile dei turni · ottobre 2026</p>
+</main>
+</body>
+</html>

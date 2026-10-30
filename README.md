@@ -5,6 +5,8 @@
 App per creare i turni mensili del reparto: desiderata, regole, generazione automatica, PDF da approvare.
 Questo repository contiene solo le versioni installabili; l'app si aggiorna da sola.
 
+**Sito, guida e video: <https://acaland.github.io/incastro-turni-releases/>**
+
 ## Scarica l'ultima versione
 
 | Computer | File da scaricare |
@@ -22,7 +24,8 @@ Non sai che Mac hai? Menu  → Informazioni su questo Mac: se alla voce «Chip»
 
 **Mac** – apri il file `.pkg`, prosegui e, alla scelta della destinazione, seleziona
 *Installa solo per me*. Se il Mac blocca l'apertura: Impostazioni di Sistema → Privacy e sicurezza →
-*Apri comunque*.
+*Apri comunque*
+(su macOS 15 e successivi premi prima *Fine* nell'avviso, poi *Apri comunque*).
 
 ## Aggiornamenti
 
@@ -33,3 +36,10 @@ al riavvio (o subito con «Riavvia e aggiorna»). I dati restano sul computer e 
 
 Medici, regole e turni stanno solo sul tuo computer. Per passare a un altro PC: nell'app,
 Impostazioni → *Esporta archivio*, poi sull'altro PC *Importa archivio*.
+
+## Segnalazioni
+
+Incastro Turni è un progetto personale sviluppato nel tempo libero, fornito così com'è, senza garanzie
+e per ora senza supporto ufficiale. Problemi e idee: [segnalazioni](https://github.com/acaland/incastro-turni-releases/issues).
+
+Progettata e realizzata dall'Ing. Antonio S. Calanducci.
