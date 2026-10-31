@@ -1,0 +1,14 @@
+{
+ "formato": "incastro-turni-esempio",
+ "versione": "2026-10-31",
+ "descrizione": "Reparto di esempio con 16 medici di fantasia: attività, regole, turni di settembre e ottobre 2026 e desiderata di novembre 2026, tutti inventati, pronto per generare il turno di novembre.",
+ "file": "reparto-demo.db.gz",
+ "sha256": "5160b3e3975c40f860b353cefdb9db730f2c574c686bddb36ca52f9ef39ded5c",
+ "byte": 27701,
+ "medici": 16,
+ "mesi_con_turni": [
+  "2026-09",
+  "2026-10"
+ ],
+ "mese_da_generare": "2026-11"
+}

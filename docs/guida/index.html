@@ -106,7 +106,7 @@
       <li><a href="#parte5">Leggere il risultato</a> (controlli, equità, turno impossibile)</li>
       <li><a href="#parte6">PDF e invio ai medici</a></li>
       <li><a href="#parte7">Medici e attività</a> (arrivi, partenze, nuove sigle, configurazione da file)</li>
-      <li><a href="#parte8">Le pagine dell'applicazione in breve</a></li>
+      <li><a href="#parte8">Le pagine dell'applicazione in breve</a> (e la prova con i dati di esempio)</li>
       <li><a href="#parte9">Domande frequenti</a></li>
     </ol>
   </div>
@@ -502,10 +502,8 @@
     configurazione completa del reparto, ad esempio al primo avvio al posto delle regole di esempio. In nessun caso si cancella qualcosa:
     una regola spenta si riaccende da <span class="ui">Regole base</span>.</li>
 </ul>
-<div class="riquadro consiglio">Il file si può anche preparare a parte: <i>Descrizione del formato</i>, accanto al pulsante, scarica un
-  documento che spiega tutti i campi con un esempio completo (anche <i>File di esempio</i>). Dato a un assistente IA insieme alla
-  descrizione a parole delle regole del reparto, gli permette di scrivere un file pronto da importare; l'anteprima controlla comunque
-  ogni regola prima di caricarla.</div>
+<div class="riquadro consiglio">Il file può arrivare già pronto da chi coordina i turni: l'anteprima controlla comunque ogni regola
+  prima di caricarla. <i>File di esempio</i>, accanto al pulsante, mostra com'è fatto un file completo, con un reparto di fantasia.</div>
 
 <!-- ======================================================================= PARTE 8 -->
 <h2 id="parte8"><span class="parte">Parte 8</span>Le pagine dell'applicazione in breve</h2>
@@ -520,8 +518,26 @@
   <tr><td><b>Regole base</b></td><td>regole valide per tutti i mesi, con l'editor</td><td>raramente</td></tr>
   <tr><td><b>Attività</b></td><td>catalogo delle sigle e degli ambulatori</td><td>quando nasce o chiude un ambulatorio</td></tr>
   <tr><td><b>Medici</b></td><td>anagrafica, periodo di servizio, ordine</td><td>quando arriva o lascia un medico</td></tr>
-  <tr><td><b>Impostazioni</b></td><td>intestazione del PDF, aggiornamenti, archivio dei dati, attività/regole/medici da file</td><td>raramente</td></tr>
+  <tr><td><b>Impostazioni</b></td><td>intestazione del PDF, aggiornamenti, prova con i dati di esempio, archivio dei dati, attività/regole/medici da file</td><td>raramente</td></tr>
 </table>
+
+<h3 id="dati-esempio">Provare con i dati di esempio</h3>
+<p>Per imparare a usare l'app, o per mostrarla a un collega, senza toccare i dati del tuo reparto: in
+  <span class="ui">Impostazioni</span> → <b>Prova con dati di esempio</b> premi <span class="ui">Installa i dati di esempio</span>.
+  L'app scarica dal sito un reparto di fantasia (16 medici, attività, regole, turni di settembre e ottobre 2026 e desiderata di novembre, tutto inventato)
+  e lo apre in un <b>archivio di prova separato</b>, accanto al tuo. Serve la connessione a Internet solo per lo scaricamento.</p>
+<ul>
+  <li>Finché usi i dati di esempio, in cima a ogni pagina c'è una banda gialla <i>Stai usando i dati di esempio</i>. Puoi fare tutto:
+    apri novembre 2026, genera il turno, correggilo, pubblicalo, scarica il PDF. Tutto resta nell'archivio di prova.</li>
+  <li><span class="ui">Torna ai tuoi dati</span>, nella banda o in Impostazioni, riapre il tuo archivio esattamente com'era. I dati di
+    esempio restano installati: <span class="ui">Apri i dati di esempio</span> li riprende da dove eri rimasto,
+    <span class="ui">Reinstalla da capo</span> li riporta come appena scaricati.</li>
+  <li><span class="ui">Elimina i dati di esempio</span> ti riporta ai tuoi dati e cancella l'archivio di prova con le sue copie di
+    sicurezza.</li>
+  <li>Con i dati di esempio l'invio al visualizzatore dei medici e l'importazione di un archivio sono disattivati; le copie di sicurezza
+    automatiche dell'archivio di prova vanno in una cartella a parte (<code>backup-esempio</code>) e non sostituiscono le tue. Se chiudi
+    l'app mentre usi i dati di esempio, alla riapertura ritrovi i dati di esempio (con la banda gialla).</li>
+</ul>
 
 <h3>Sigle principali</h3>
 <ul class="breve">
@@ -561,6 +577,9 @@
   con 1 o 2 minuti.</p>
 <h4>Posso far fare due attività a un medico nello stesso giorno?</h4>
 <p>Sì, a mano: scrivi le due sigle separate da una barra (es. <i>AI/PAL</i>). Il programma di suo ne assegna una sola.</p>
+<h4>Posso provare l'app senza i dati del mio reparto?</h4>
+<p>Sì, con i dati di esempio: un reparto di fantasia in un archivio separato, che si installa e si cancella da
+  <span class="ui">Impostazioni</span> senza toccare i tuoi dati (vedi <a href="#dati-esempio">Provare con i dati di esempio</a>).</p>
 <h4>I dati dove sono?</h4>
 <p>Sul computer dove gira l'applicazione. Ai medici arriva solo il link cifrato, che senza il codice del reparto non si può leggere.</p>
 
