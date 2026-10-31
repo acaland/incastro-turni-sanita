@@ -12,7 +12,7 @@
 <meta property="og:image" content="img/turno.webp">
 <link rel="icon" href="img/icona.png?v=6326addc">
 <link rel="apple-touch-icon" href="img/icona.png?v=6326addc">
-<link rel="stylesheet" href="assets/sito.css?v=11ab71da">
+<link rel="stylesheet" href="assets/sito.css?v=00e9038e">
 </head>
 <body>
 
@@ -28,6 +28,7 @@
       <a href="#video">Video</a>
       <a href="guida/">Guida</a>
       <a href="novita.html">Novità</a>
+      <a href="registrati.html">Registrati</a>
       <a class="pillola" href="#scarica">Scarica</a>
     </nav>
   </div>
@@ -38,7 +39,7 @@
 <div class="eroe">
   <div class="contenitore">
     <img class="icona" src="img/icona.png?v=6326addc" alt="">
-    <h1>Incastro Turni</h1>
+    <h1>Incastro Turni <span class="etichetta-beta" title="In fase di sperimentazione">Beta</span></h1>
     <p class="slogan">Il turno del mese, senza rompicapo.</p>
     <p class="intro">Inserisci i desiderata dei colleghi, premi <b>Genera</b>: Incastro Turni propone un turno che rispetta
       le regole del reparto e distribuisce con equità notti, festivi e weekend. Tu controlli, ritocchi e pubblichi.</p>
@@ -47,6 +48,7 @@
       <a class="link-freccia" href="#video">Guarda il video</a>
     </div>
     <p class="nota-piccola">Per Windows e Mac · si installa senza permessi di amministratore · si aggiorna da sola</p>
+    <p class="nota-piccola">In fase di sperimentazione: al momento è concesso l'uso gratuito, senza garanzie.</p>
   </div>
   <div class="schermo">
     <div class="finestra taglio">
@@ -143,6 +145,7 @@
         <ul class="elenco">
           <li>Coperture, idoneità, sequenze, recuperi, blocchi settimanali</li>
           <li>Colleghi che arrivano o lasciano a metà mese</li>
+          <li>Importa ed esporta attività, regole e turnisti da file</li>
         </ul>
       </div>
       <div class="immagine stretta"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Nuovo ambulatorio</span></div>
@@ -180,7 +183,7 @@
     </div>
     <div class="riquadri">
       <div class="riquadro largo"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>I dati restano sul tuo computer</h3>
-        <p>Nomi, regole e turni non vanno su nessun server: niente account, niente cloud. Funziona anche senza Internet.</p></div>
+        <p>Nomi, regole e turni non vanno su nessun server: niente cloud. Internet serve solo per l'attivazione e gli aggiornamenti.</p></div>
       <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></svg></span><h3>Windows e Mac</h3>
         <p>Si installa nella cartella dell'utente: non servono permessi di amministratore.</p></div>
       <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/></svg></span><h3>Si aggiorna da sola</h3>
@@ -242,21 +245,29 @@
       <h2>Per Windows e Mac.</h2>
       <p>Versione <span id="versione">più recente</span> · <a href="novita.html">cosa c'è di nuovo</a></p>
     </div>
+    <div class="invito">
+      <div>
+        <h3>Prima di installare, registrati.</h3>
+        <p>Al primo avvio l'app chiede la tua e-mail e un codice personale: lo ricevi subito registrandoti.
+          Incastro Turni è in fase di sperimentazione (beta): al momento è concesso l'uso gratuito, senza garanzie.</p>
+      </div>
+      <a class="bottone" href="registrati.html">Registrati e ricevi il codice</a>
+    </div>
     <div class="scarica">
       <div class="piattaforma" data-os="windows">
         <div class="etichetta-consigliata"></div>
         <div class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Windows</h3><p>Windows 10 e 11, 64 bit</p>
-        <a class="bottone" href="https://github.com/acaland/incastro-turni-releases/releases/latest/download/IncastroTurni-win-x64-Setup.exe">Scarica per Windows</a>
+        <a class="bottone" href="https://github.com/acaland/incastro-turni-sanita/releases/latest/download/IncastroTurni-win-x64-Setup.exe">Scarica per Windows</a>
       </div>
       <div class="piattaforma" data-os="mac">
         <div class="etichetta-consigliata"></div>
         <div class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></svg></div><h3>Mac con Apple Silicon</h3><p>Chip M1, M2, M3, M4 e successivi</p>
-        <a class="bottone" href="https://github.com/acaland/incastro-turni-releases/releases/latest/download/IncastroTurni-osx-arm64-Setup.pkg">Scarica per Mac</a>
+        <a class="bottone" href="https://github.com/acaland/incastro-turni-sanita/releases/latest/download/IncastroTurni-osx-arm64-Setup.pkg">Scarica per Mac</a>
       </div>
       <div class="piattaforma" data-os="mac-intel">
         <div class="etichetta-consigliata"></div>
         <div class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></svg></div><h3>Mac con Intel</h3><p>Processore Intel Core</p>
-        <a class="bottone" href="https://github.com/acaland/incastro-turni-releases/releases/latest/download/IncastroTurni-osx-x64-Setup.pkg">Scarica per Mac Intel</a>
+        <a class="bottone" href="https://github.com/acaland/incastro-turni-sanita/releases/latest/download/IncastroTurni-osx-x64-Setup.pkg">Scarica per Mac Intel</a>
       </div>
     </div>
     <div class="installazione">
@@ -275,11 +286,13 @@
   <div class="contenitore">
     <div class="avvertenze">
       <h2>Un progetto personale</h2>
-      <p>Incastro Turni è un progetto personale, sviluppato <b>nel tempo libero</b>.</p>
-      <p>Il software è fornito <b>così com'è, senza garanzie</b> di alcun tipo. L'autore non si assume responsabilità per l'uso
+      <p>Incastro Turni è un progetto personale, sviluppato <b>nel tempo libero</b>: è stato progettato e realizzato
+        dall'Ing. Antonio S. Calanducci, su richiesta e in collaborazione con la Dott.ssa Tiziana Di Gregorio, MD.</p>
+      <p>L'app è <b>in fase di sperimentazione (beta)</b>: al momento ne è concesso l'uso gratuito.
+        Il software è fornito <b>così com'è, senza garanzie</b> di alcun tipo. L'autore non si assume responsabilità per l'uso
         che se ne fa né per i turni prodotti: ogni turno va sempre controllato e approvato da chi ne ha la responsabilità.</p>
       <p>Per ora <b>non è previsto un supporto ufficiale</b>. Problemi, dubbi e idee si possono segnalare nella pagina delle
-        <a href="https://github.com/acaland/incastro-turni-releases/issues">segnalazioni su GitHub</a>: le leggo volentieri,
+        <a href="https://github.com/acaland/incastro-turni-sanita/issues">segnalazioni su GitHub</a>: le leggo volentieri,
         senza promesse sui tempi di risposta.</p>
       <p>Nelle immagini e nel video nomi, sigle e reparto sono di fantasia.</p>
     </div>
@@ -290,14 +303,16 @@
 <footer>
   <div class="contenitore righe">
     <div>
-      <p>Progettata e realizzata dall'Ing. Antonio S. Calanducci.</p>
-      <p>Incastro Turni · progetto personale, senza garanzie e senza supporto ufficiale.</p>
+      <p>Progettata e realizzata dall'Ing. Antonio S. Calanducci, su richiesta e in collaborazione con la Dott.ssa Tiziana Di Gregorio, MD.</p>
+      <p>Incastro Turni · beta, progetto personale, senza garanzie e senza supporto ufficiale.</p>
     </div>
     <nav>
       <a href="guida/">Guida</a>
       <a href="novita.html">Novità</a>
-      <a href="https://github.com/acaland/incastro-turni-releases/issues">Segnala un problema</a>
-      <a href="https://github.com/acaland/incastro-turni-releases/releases">Tutte le versioni</a>
+      <a href="registrati.html">Registrati</a>
+      <a href="registrati.html#informativa">Privacy</a>
+      <a href="https://github.com/acaland/incastro-turni-sanita/issues">Segnala un problema</a>
+      <a href="https://github.com/acaland/incastro-turni-sanita/releases">Tutte le versioni</a>
     </nav>
   </div>
 </footer>
@@ -312,7 +327,7 @@
     el.classList.add("consigliata");
     el.querySelector(".etichetta-consigliata").textContent = "Per il tuo computer";
   }
-  fetch("https://api.github.com/repos/acaland/incastro-turni-releases/releases/latest")
+  fetch("https://api.github.com/repos/acaland/incastro-turni-sanita/releases/latest")
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (r) { if (r && r.tag_name) document.getElementById("versione").textContent = r.tag_name.replace(/^v/, ""); })
     .catch(function () {});

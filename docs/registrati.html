@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registrati – Incastro Turni</title>
+<meta name="description" content="Registrati per ricevere il codice personale che attiva Incastro Turni al primo avvio.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/icona.png?v=6326addc">
+<link rel="stylesheet" href="assets/sito.css?v=00e9038e">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="contenitore">
+    <a class="marchio" href="./"><img src="img/icona.png?v=6326addc" alt="">Incastro Turni</a>
+    <button class="menu-bottone" aria-label="Menu" aria-expanded="false" onclick="const n=document.getElementById('nav');this.setAttribute('aria-expanded',n.classList.toggle('aperto'))">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+    </button>
+    <nav class="voci">
+      <a href="./#funzioni">Funzioni</a>
+      <a href="./#telefono">App per il telefono</a>
+      <a href="./#video">Video</a>
+      <a href="guida/">Guida</a>
+      <a href="novita.html">Novità</a>
+      <a href="registrati.html" aria-current="page">Registrati</a>
+      <a class="pillola" href="./#scarica">Scarica</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pagina">
+  <div class="contenitore">
+    <h1>Registrati</h1>
+    <p class="intro">Al primo avvio Incastro Turni chiede la tua e-mail e un codice personale.
+      Compila il modulo: il codice ti arriva per e-mail in pochi istanti.</p>
+
+    <div class="scheda-modulo">
+      <p class="nota-beta"><span class="etichetta-beta">Beta</span> L'app è in fase di sperimentazione: al momento è concesso l'uso gratuito, senza garanzie.</p>
+
+      <form id="modulo" class="modulo" novalidate>
+        <div class="campi">
+          <div class="campo">
+            <label for="nome">Nome <span class="obbligatorio" aria-hidden="true">*</span></label>
+            <input id="nome" name="nome" type="text" autocomplete="given-name" required maxlength="80" pattern=".*\S.*">
+          </div>
+          <div class="campo">
+            <label for="cognome">Cognome <span class="obbligatorio" aria-hidden="true">*</span></label>
+            <input id="cognome" name="cognome" type="text" autocomplete="family-name" required maxlength="80" pattern=".*\S.*">
+          </div>
+          <div class="campo intero">
+            <label for="email">E-mail <span class="obbligatorio" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" aria-describedby="email-aiuto">
+            <p class="aiuto" id="email-aiuto">Qui arriva il codice. È anche l'indirizzo da inserire nell'app.</p>
+          </div>
+          <div class="campo">
+            <label for="telefono">Telefono <span class="facoltativo">facoltativo</span></label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[0-9 +\(\)\.\/\-]{6,30}" title="Solo cifre, spazi e i simboli + ( ) - .">
+          </div>
+          <div class="campo">
+            <label for="ruolo">Ruolo <span class="facoltativo">facoltativo</span></label>
+            <input id="ruolo" name="ruolo" type="text" list="ruoli" autocomplete="organization-title" maxlength="80" placeholder="Es. medico, infermiere…">
+            <datalist id="ruoli">
+              <option value="Medico">
+              <option value="Medico in formazione specialistica">
+              <option value="Direttore di struttura">
+              <option value="Responsabile dei turni">
+              <option value="Coordinatore infermieristico">
+              <option value="Infermiere">
+              <option value="Ostetrica/o">
+              <option value="Tecnico sanitario">
+              <option value="Fisioterapista">
+              <option value="Personale amministrativo">
+            </datalist>
+          </div>
+          <div class="campo intero">
+            <label for="struttura">Struttura <span class="obbligatorio" aria-hidden="true">*</span></label>
+            <input id="struttura" name="struttura" type="text" autocomplete="organization" required maxlength="160" pattern=".*\S.*" aria-describedby="struttura-aiuto">
+            <p class="aiuto" id="struttura-aiuto">Azienda sanitaria, ospedale, ambulatorio o altro.</p>
+          </div>
+
+          <!-- campo esca contro i programmi automatici: invisibile, le persone non lo compilano -->
+          <div class="esca" aria-hidden="true">
+            <label for="sito">Sito web</label>
+            <input id="sito" name="sito" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="campo intero consenso">
+            <input id="consenso" name="consenso" type="checkbox" required>
+            <label for="consenso">Ho letto l'<a href="#informativa">informativa sul trattamento dei dati personali</a>. <span class="obbligatorio" aria-hidden="true">*</span></label>
+          </div>
+        </div>
+
+        <p class="aiuto"><span aria-hidden="true">*</span> Campo obbligatorio.</p>
+        <div id="messaggio" class="messaggio" role="alert" aria-live="assertive" hidden></div>
+        <button class="bottone" id="invia" type="submit">Invia e ricevi il codice</button>
+      </form>
+
+      <div id="fatto" class="fatto" tabindex="-1" hidden>
+        <span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></svg></span>
+        <h2>Registrazione completata.</h2>
+        <p>Ti abbiamo inviato il codice di attivazione a <b id="fatto-email"></b>. Se non lo trovi tra qualche minuto,
+          controlla anche la cartella dello spam (posta indesiderata).</p>
+        <p>Al primo avvio dell'app inserisci la stessa e-mail e il codice ricevuto.</p>
+        <a class="bottone" href="./#scarica">Vai al download</a>
+      </div>
+    </div>
+
+    <section class="informativa" id="informativa" aria-labelledby="informativa-titolo">
+      <h2 id="informativa-titolo">Informativa sul trattamento dei dati personali</h2>
+      <p class="aiuto">Ai sensi dell'art. 13 del Regolamento (UE) 2016/679 (GDPR). Ultimo aggiornamento: ottobre 2026.</p>
+
+      <h3>Chi tratta i dati</h3>
+      <p>Il titolare del trattamento è l'Ing. Antonio S. Calanducci. Per qualunque richiesta scrivi a
+        <span class="indirizzo">antonio.calanducci AT gmail.com</span> (sostituisci «AT» con «@»).</p>
+
+      <h3>Quali dati</h3>
+      <ul>
+        <li>Quelli che inserisci nel modulo: nome, cognome, e-mail, struttura e, se li indichi, telefono e ruolo.</li>
+        <li>A ogni attivazione dell'app: la versione dell'app, il sistema operativo e un identificativo casuale
+          dell'installazione, che non contiene informazioni personali.</li>
+      </ul>
+      <p>I dati dei turni (colleghi, regole, desiderata) restano sul tuo computer e non vengono mai inviati.</p>
+
+      <h3>Perché</h3>
+      <ul>
+        <li>Inviarti il codice di attivazione.</li>
+        <li>Sapere chi usa l'app e quante installazioni sono attive durante la sperimentazione.</li>
+        <li>Mandarti, se serve, comunicazioni sull'app (per esempio nuove versioni o problemi importanti).</li>
+      </ul>
+      <p>La base giuridica è la tua richiesta di registrazione e il consenso che dai inviando il modulo, che puoi
+        revocare in qualsiasi momento. I campi obbligatori servono per inviarti il codice: senza, non è possibile attivare l'app.</p>
+
+      <h3>Dove e per quanto tempo</h3>
+      <p>I dati sono conservati su Cloudflare, il servizio usato per il modulo e per l'attivazione, e una copia della
+        registrazione arriva via e-mail al titolare. Li conserviamo per la durata della sperimentazione o finché non ne
+        chiedi la cancellazione.</p>
+      <p>Non sono ceduti a terzi, non sono usati a fini commerciali o pubblicitari e non servono a profilarti.</p>
+
+      <h3>I tuoi diritti</h3>
+      <p>Puoi chiedere in ogni momento di accedere ai tuoi dati, correggerli o cancellarli, limitarne il trattamento o
+        opporti, scrivendo all'indirizzo indicato sopra. Se ritieni che i tuoi dati siano trattati in modo non corretto puoi
+        presentare reclamo al <a href="https://www.garanteprivacy.it/">Garante per la protezione dei dati personali</a>.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="contenitore righe">
+    <div>
+      <p>Progettata e realizzata dall'Ing. Antonio S. Calanducci, su richiesta e in collaborazione con la Dott.ssa Tiziana Di Gregorio, MD.</p>
+      <p>Incastro Turni · beta, progetto personale, senza garanzie e senza supporto ufficiale.</p>
+    </div>
+    <nav>
+      <a href="guida/">Guida</a>
+      <a href="novita.html">Novità</a>
+      <a href="registrati.html#informativa">Privacy</a>
+      <a href="https://github.com/acaland/incastro-turni-sanita/issues">Segnala un problema</a>
+      <a href="https://github.com/acaland/incastro-turni-sanita/releases">Tutte le versioni</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Indirizzo del servizio di registrazione (Cloudflare Worker).
+// Contratto: POST JSON {nome, cognome, email, telefono, ruolo, struttura, consenso: true, sito: ""}
+// → {"ok": true} oppure {"ok": false, "errore": "…"} con stato 4xx/5xx.
+const API_REGISTRAZIONE = "https://incastro-turni.ambulio.workers.dev/api/registrazione";
+
+(function () {
+  var modulo = document.getElementById("modulo");
+  var bottone = document.getElementById("invia");
+  var messaggio = document.getElementById("messaggio");
+  var testoBottone = bottone.textContent;
+
+  function mostraErrore(testo) {
+    messaggio.textContent = testo;
+    messaggio.hidden = false;
+  }
+
+  function inAttesa(si) {
+    bottone.disabled = si;
+    bottone.textContent = si ? "Invio in corso…" : testoBottone;
+    modulo.setAttribute("aria-busy", si ? "true" : "false");
+  }
+
+  function valore(nome) { return modulo.elements[nome].value.trim(); }
+
+  modulo.addEventListener("submit", function (e) {
+    e.preventDefault();
+    messaggio.hidden = true;
+    modulo.classList.add("controllato");   // da qui in poi i campi non validi si evidenziano
+    if (!modulo.checkValidity()) {
+      modulo.reportValidity();
+      var primo = modulo.querySelector(":invalid");
+      if (primo) primo.focus();
+      return;
+    }
+    var dati = {
+      nome: valore("nome"),
+      cognome: valore("cognome"),
+      email: valore("email"),
+      telefono: valore("telefono"),
+      ruolo: valore("ruolo"),
+      struttura: valore("struttura"),
+      consenso: modulo.elements.consenso.checked,
+      sito: modulo.elements.sito.value
+    };
+    inAttesa(true);
+    var controllo = typeof AbortController === "function" ? new AbortController() : null;
+    var scadenza = controllo ? setTimeout(function () { controllo.abort(); }, 20000) : null;
+    fetch(API_REGISTRAZIONE, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dati),
+      signal: controllo ? controllo.signal : undefined
+    })
+      .then(function (r) {
+        return r.json().catch(function () { return null; }).then(function (corpo) { return { stato: r.status, ok: r.ok, corpo: corpo }; });
+      })
+      .then(function (ris) {
+        if (ris.ok && ris.corpo && ris.corpo.ok) {
+          document.getElementById("fatto-email").textContent = dati.email;
+          modulo.hidden = true;
+          var fatto = document.getElementById("fatto");
+          fatto.hidden = false;
+          fatto.focus();
+          return;
+        }
+        var errore = ris.corpo && typeof ris.corpo.errore === "string" && ris.corpo.errore.trim();
+        if (errore) mostraErrore(errore);
+        else if (ris.stato === 429) mostraErrore("Troppe richieste in poco tempo. Riprova tra qualche minuto.");
+        else if (ris.stato >= 500) mostraErrore("Il servizio di registrazione ha un problema temporaneo. Riprova più tardi.");
+        else mostraErrore("La registrazione non è andata a buon fine (errore " + ris.stato + "). Controlla i dati e riprova.");
+      })
+      .catch(function () {
+        mostraErrore("Non riesco a contattare il servizio di registrazione. Controlla la connessione a Internet e riprova; " +
+          "se il problema continua, scrivi ad antonio.calanducci AT gmail.com.");
+      })
+      .then(function () {
+        if (scadenza) clearTimeout(scadenza);
+        inAttesa(false);
+      });
+  });
+
+  document.querySelectorAll(".nav .voci a").forEach(function (a) {
+    a.addEventListener("click", function () { document.getElementById("nav").classList.remove("aperto"); });
+  });
+})();
+</script>
+</body>
+</html>

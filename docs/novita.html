@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="img/icona.png?v=6326addc">
-<link rel="stylesheet" href="assets/sito.css?v=11ab71da">
+<link rel="stylesheet" href="assets/sito.css?v=00e9038e">
 </head>
 <body>
 
@@ -24,6 +24,7 @@
       <a href="./#video">Video</a>
       <a href="guida/">Guida</a>
       <a href="novita.html" aria-current="page">Novità</a>
+      <a href="registrati.html">Registrati</a>
       <a class="pillola" href="./#scarica">Scarica</a>
     </nav>
   </div>
@@ -60,7 +61,7 @@
           <li>Copia di sicurezza giornaliera; esportazione e importazione dell'archivio per cambiare computer.</li>
           <li>Guida illustrata integrata.</li>
         </ul>
-        <p class="file"><a href="https://github.com/acaland/incastro-turni-releases/releases/tag/v0.1.0">File della versione 0.1.0</a></p>
+        <p class="file"><a href="https://github.com/acaland/incastro-turni-sanita/releases/tag/v0.1.0">File della versione 0.1.0</a></p>
       </article>
     </div>
   </div>
@@ -69,13 +70,15 @@
 <footer>
   <div class="contenitore righe">
     <div>
-      <p>Progettata e realizzata dall'Ing. Antonio S. Calanducci.</p>
-      <p>Incastro Turni · progetto personale, senza garanzie e senza supporto ufficiale.</p>
+      <p>Progettata e realizzata dall'Ing. Antonio S. Calanducci, su richiesta e in collaborazione con la Dott.ssa Tiziana Di Gregorio, MD.</p>
+      <p>Incastro Turni · beta, progetto personale, senza garanzie e senza supporto ufficiale.</p>
     </div>
     <nav>
       <a href="guida/">Guida</a>
-      <a href="https://github.com/acaland/incastro-turni-releases/issues">Segnala un problema</a>
-      <a href="https://github.com/acaland/incastro-turni-releases/releases">Tutte le versioni</a>
+      <a href="registrati.html">Registrati</a>
+      <a href="registrati.html#informativa">Privacy</a>
+      <a href="https://github.com/acaland/incastro-turni-sanita/issues">Segnala un problema</a>
+      <a href="https://github.com/acaland/incastro-turni-sanita/releases">Tutte le versioni</a>
     </nav>
   </div>
 </footer>
@@ -101,7 +104,7 @@
     return out.join("");
   }
   var data = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" });
-  fetch("https://api.github.com/repos/acaland/incastro-turni-releases/releases?per_page=50")
+  fetch("https://api.github.com/repos/acaland/incastro-turni-sanita/releases?per_page=50")
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (rel) {
       if (!rel) return;
