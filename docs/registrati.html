@@ -34,7 +34,7 @@
   <div class="contenitore">
     <h1>Registrati</h1>
     <p class="intro">Al primo avvio Incastro Turni chiede la tua e-mail e un codice personale.
-      Compila il modulo: il codice ti arriva per e-mail in pochi istanti.</p>
+      Compila il modulo: il codice ti arriva per e-mail dopo una breve verifica della richiesta (di solito entro un giorno).</p>
 
     <div class="scheda-modulo">
       <p class="nota-beta"><span class="etichetta-beta">Beta</span> L'app è in fase di sperimentazione: al momento è concesso l'uso gratuito, senza garanzie.</p>
@@ -94,15 +94,25 @@
 
         <p class="aiuto"><span aria-hidden="true">*</span> Campo obbligatorio.</p>
         <div id="messaggio" class="messaggio" role="alert" aria-live="assertive" hidden></div>
-        <button class="bottone" id="invia" type="submit">Invia e ricevi il codice</button>
+        <button class="bottone" id="invia" type="submit">Invia la registrazione</button>
       </form>
 
       <div id="fatto" class="fatto" tabindex="-1" hidden>
         <span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></svg></span>
-        <h2>Registrazione completata.</h2>
-        <p>Ti abbiamo inviato il codice di attivazione a <b id="fatto-email"></b>. Se non lo trovi tra qualche minuto,
-          controlla anche la cartella dello spam (posta indesiderata).</p>
-        <p>Al primo avvio dell'app inserisci la stessa e-mail e il codice ricevuto.</p>
+        <h2 id="fatto-titolo">Registrazione completata.</h2>
+        <!-- modalità automatica: il codice è già partito -->
+        <div id="fatto-subito">
+          <p>Ti abbiamo inviato il codice di attivazione a <b class="fatto-email"></b>. Se non lo trovi tra qualche minuto,
+            controlla anche la cartella dello spam (posta indesiderata).</p>
+          <p>Al primo avvio dell'app inserisci la stessa e-mail e il codice ricevuto.</p>
+        </div>
+        <!-- modalità con approvazione: il codice parte dopo la verifica -->
+        <div id="fatto-attesa" hidden>
+          <p>Riceverai il codice di attivazione per e-mail a <b class="fatto-email"></b> dopo la verifica della richiesta
+            (di solito entro un giorno). Ti abbiamo già mandato un messaggio di conferma: se non lo trovi, controlla anche la
+            cartella dello spam (posta indesiderata). Se ti eri già registrato in passato, il codice ti arriva subito.</p>
+          <p>Nel frattempo puoi già scaricare l'app: al primo avvio inserisci la stessa e-mail e il codice ricevuto.</p>
+        </div>
         <a class="bottone" href="./#scarica">Vai al download</a>
       </div>
     </div>
@@ -125,7 +135,7 @@
 
       <h3>Perché</h3>
       <ul>
-        <li>Inviarti il codice di attivazione.</li>
+        <li>Verificare la richiesta di registrazione e inviarti il codice di attivazione.</li>
         <li>Sapere chi usa l'app e quante installazioni sono attive durante la sperimentazione.</li>
         <li>Mandarti, se serve, comunicazioni sull'app (per esempio nuove versioni o problemi importanti).</li>
       </ul>
@@ -133,8 +143,8 @@
         revocare in qualsiasi momento. I campi obbligatori servono per inviarti il codice: senza, non è possibile attivare l'app.</p>
 
       <h3>Dove e per quanto tempo</h3>
-      <p>I dati sono conservati su Cloudflare, il servizio usato per il modulo e per l'attivazione, e una copia della
-        registrazione arriva via e-mail al titolare. Li conserviamo per la durata della sperimentazione o finché non ne
+      <p>I dati sono conservati su Cloudflare, il servizio usato per il modulo e per l'attivazione; una copia della
+        registrazione arriva via e-mail al titolare, che la verifica prima di inviare il codice. Li conserviamo per la durata della sperimentazione o finché non ne
         chiedi la cancellazione.</p>
       <p>Non sono ceduti a terzi, non sono usati a fini commerciali o pubblicitari e non servono a profilarti.</p>
 
@@ -165,7 +175,8 @@
 <script>
 // Indirizzo del servizio di registrazione (Cloudflare Worker).
 // Contratto: POST JSON {nome, cognome, email, telefono, ruolo, struttura, consenso: true, sito: ""}
-// → {"ok": true} oppure {"ok": false, "errore": "…"} con stato 4xx/5xx.
+// → {"ok": true, "approvazione": true|false} oppure {"ok": false, "errore": "…"} con stato 4xx/5xx.
+// approvazione: true = il codice parte dopo la verifica del titolare; false (o assente) = codice già inviato.
 const API_REGISTRAZIONE = "https://incastro-turni.ambulio.workers.dev/api/registrazione";
 
 (function () {
@@ -221,7 +232,11 @@ const API_REGISTRAZIONE = "https://incastro-turni.ambulio.workers.dev/api/regist
       })
       .then(function (ris) {
         if (ris.ok && ris.corpo && ris.corpo.ok) {
-          document.getElementById("fatto-email").textContent = dati.email;
+          var attesa = ris.corpo.approvazione === true;
+          document.querySelectorAll(".fatto-email").forEach(function (b) { b.textContent = dati.email; });
+          document.getElementById("fatto-titolo").textContent = attesa ? "Registrazione ricevuta." : "Registrazione completata.";
+          document.getElementById("fatto-subito").hidden = attesa;
+          document.getElementById("fatto-attesa").hidden = !attesa;
           modulo.hidden = true;
           var fatto = document.getElementById("fatto");
           fatto.hidden = false;
