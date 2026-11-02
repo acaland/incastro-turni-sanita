@@ -202,7 +202,7 @@
     scritta «BOZZA», quello di una versione pubblicata «APPROVATO».</figcaption></figure>
   <figure class="stretta"><img src="img/22-pdf.png" alt="PDF del turno"><figcaption><b>Il PDF</b>: griglia del mese, legenda delle sigle usate e spazi per
     le firme. La seconda pagina riporta i conteggi per medico (notti, pomeriggi, sabati, festivi…).</figcaption></figure>
-  <p>Infine, nella scheda <span class="ui">5 · PDF e visualizzatore</span>, premi <span class="ui">Esporta per il visualizzatore</span>:
+  <p>Infine, nella scheda <span class="ui">5 · PDF e visualizzatore</span>, premi <span class="ui">Crea il link per i telefoni</span>:
     l'applicazione prepara il messaggio con il link da inviare ai medici su WhatsApp o per e-mail (dettagli nella <a href="#parte6">Parte 6</a>).</p>
 </div></div>
 
@@ -280,7 +280,7 @@
   <li>Seleziona la versione pubblicata e premi <span class="ui">Duplica per modificare</span>: nasce una copia in bozza.</li>
   <li>Fai i cambi nella copia (celle a mano, ed eventualmente <span class="ui">Rigenera con le celle fissate</span>).</li>
   <li>Premi <span class="ui">Pubblica</span> sulla nuova versione: diventa quella ufficiale, la precedente viene archiviata.</li>
-  <li>Scarica il nuovo PDF ed esporta di nuovo per il visualizzatore: i medici ricevono un link aggiornato che sostituisce il precedente.</li>
+  <li>Scarica il nuovo PDF e crea di nuovo il link per i telefoni: i medici ricevono un link aggiornato che sostituisce il precedente.</li>
 </ol>
 
 <h3>Cambi che riguardano tutto il mese</h3>
@@ -449,11 +449,30 @@
   i dati per l'app dei medici.</figcaption></figure>
 <ul>
   <li><b>PDF</b>: griglia, legenda, firme (responsabile, direttore, data) e riepilogo dei conteggi. Si stampa o si invia in amministrazione.</li>
-  <li><b>Esporta per il visualizzatore</b>: prepara i turni per l'app che i medici usano sul telefono. Con <i>crea anche il link cifrato</i>
-    compare il messaggio pronto da incollare nel gruppo WhatsApp o in una e-mail, con il pulsante <span class="ui">Copia il messaggio</span>.</li>
+  <li><b>App dei medici sul telefono</b>: <span class="ui">Crea il link per i telefoni</span> prepara il messaggio con il <b>link cifrato</b>
+    dei turni del mese, pronto da incollare nel gruppo WhatsApp o in una e-mail con il pulsante <span class="ui">Copia il messaggio</span>.
+    Toccando il link, i turni si aprono nell'app dei turni sul telefono (non serve installare nulla) e restano solo sul dispositivo.
+    Con <span class="ui">Mostra il QR code</span> puoi inquadrare il link con il tuo telefono, ad esempio per controllare come lo vedranno i colleghi.</li>
 </ul>
-<div class="riquadro attenzione">Il <b>codice del reparto</b> che serve per aprire il link si comunica a voce o in reparto, mai nello stesso
-  messaggio del link. Se correggi il turno dopo l'invio, esporta di nuovo e manda il nuovo link: sostituisce quello vecchio sui telefoni.</div>
+<p>Il link porta con sé nomi completi dei medici (il campo <i>Nome completo</i> della pagina <span class="ui">Medici</span>; se manca, il
+  cognome), sigle, nomi, orari e colori delle attività usate nel mese: anche le attività e le categorie create per il tuo reparto
+  compaiono sul telefono con i loro nomi e colori.</p>
+
+<h3 id="codice-reparto">Prima volta: il codice del reparto</h3>
+<p>Il link è cifrato: per aprirlo serve il <b>codice del reparto</b> (12 caratteri, es. <code>ABCD-EFGH-JKMN</code>), che ogni medico
+  inserisce una volta sola sul telefono. Lo prepari in <span class="ui">Impostazioni</span> → <b>App dei medici sul telefono</b>:</p>
+<ul>
+  <li><span class="ui">Crea il codice</span> ne genera uno a caso; <span class="ui">Mostra</span> e <span class="ui">Copia</span> servono per
+    leggerlo e comunicarlo. Se il reparto ha già un codice in uso, scrivilo nel campo identico: i telefoni non dovranno reinserirlo.</li>
+  <li><b>Etichetta del reparto</b>: compare nel messaggio («Turni di novembre 2026 – Medicina 2»).</li>
+  <li><b>Indirizzo dell'app</b>: lascialo vuoto per usare quello predefinito; cambialo solo se l'app dei medici è pubblicata altrove.</li>
+  <li>Premi <span class="ui">Salva</span>. Il codice è conservato nell'archivio dei dati, quindi anche nelle copie di sicurezza e
+    nell'archivio esportato per un altro computer.</li>
+</ul>
+<div class="riquadro attenzione">Il <b>codice del reparto</b> si comunica a voce o in reparto, <b>mai nello stesso messaggio del link</b>
+  (né nello stesso gruppo): chi ha il link senza il codice non può leggere i turni. Cambiare il codice obbliga tutti i medici a
+  reinserirlo: fallo solo se serve, ad esempio quando qualcuno lascia il reparto. Se correggi il turno dopo l'invio, crea e manda un nuovo
+  link: sostituisce quello vecchio sui telefoni.</div>
 
 <!-- ======================================================================= PARTE 7 -->
 <h2 id="parte7"><span class="parte">Parte 7</span>Medici e attività</h2>
@@ -514,11 +533,11 @@
   <tr><td>Mese → <b>2 · Regole del mese</b></td><td>ambulatori del mese (sospendi, cambia, aggiungi); variazioni; regole base attive nel mese</td><td>quando cambia qualcosa</td></tr>
   <tr><td>Mese → <b>3 · Genera e rivedi</b></td><td>generazione, griglia modificabile, controlli, versioni, pubblicazione, PDF</td><td>ogni mese</td></tr>
   <tr><td>Mese → <b>4 · Equità</b></td><td>turni per medico contro l'obiettivo, con lo storico dei mesi precedenti</td><td>per controllo o in caso di contestazioni</td></tr>
-  <tr><td>Mese → <b>5 · PDF e visualizzatore</b></td><td>PDF per l'amministrazione; esportazione e link per i telefoni dei medici</td><td>ogni mese, dopo la pubblicazione</td></tr>
+  <tr><td>Mese → <b>5 · PDF e visualizzatore</b></td><td>PDF per l'amministrazione; link cifrato (e QR code) per i telefoni dei medici</td><td>ogni mese, dopo la pubblicazione</td></tr>
   <tr><td><b>Regole base</b></td><td>regole valide per tutti i mesi, con l'editor</td><td>raramente</td></tr>
   <tr><td><b>Attività</b></td><td>catalogo delle sigle e degli ambulatori</td><td>quando nasce o chiude un ambulatorio</td></tr>
   <tr><td><b>Medici</b></td><td>anagrafica, periodo di servizio, ordine</td><td>quando arriva o lascia un medico</td></tr>
-  <tr><td><b>Impostazioni</b></td><td>intestazione del PDF, aggiornamenti, prova con i dati di esempio, archivio dei dati, attività/regole/medici da file</td><td>raramente</td></tr>
+  <tr><td><b>Impostazioni</b></td><td>intestazione del PDF, app dei medici (codice del reparto), aggiornamenti, prova con i dati di esempio, archivio dei dati, attività/regole/medici da file</td><td>raramente</td></tr>
 </table>
 
 <h3 id="dati-esempio">Provare con i dati di esempio</h3>
@@ -534,7 +553,7 @@
     <span class="ui">Reinstalla da capo</span> li riporta come appena scaricati.</li>
   <li><span class="ui">Elimina i dati di esempio</span> ti riporta ai tuoi dati e cancella l'archivio di prova con le sue copie di
     sicurezza.</li>
-  <li>Con i dati di esempio l'invio al visualizzatore dei medici e l'importazione di un archivio sono disattivati; le copie di sicurezza
+  <li>Con i dati di esempio il link per i telefoni dei medici e l'importazione di un archivio sono disattivati; le copie di sicurezza
     automatiche dell'archivio di prova vanno in una cartella a parte (<code>backup-esempio</code>) e non sostituiscono le tue. Se chiudi
     l'app mentre usi i dati di esempio, alla riapertura ritrovi i dati di esempio (con la banda gialla).</li>
 </ul>

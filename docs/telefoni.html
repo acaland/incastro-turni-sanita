@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App per i turnisti – Incastro Turni</title>
+<meta name="description" content="I colleghi mandano i desiderata dal telefono e ricevono i turni con una notifica, su smartphone, tablet e computer. Cifratura da un capo all'altro, nessun account per i medici, i dati restano sul PC del coordinatore.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Incastro Turni · App per i turnisti">
+<meta property="og:description" content="Desiderata dal telefono, turni con una notifica. Cifrato da un capo all'altro, senza account per i medici.">
+<meta property="og:image" content="img/tel-richieste.webp">
+<link rel="icon" href="img/icona.png?v=15688521">
+<link rel="apple-touch-icon" href="img/icona.png?v=15688521">
+<link rel="stylesheet" href="assets/sito.css?v=9bf009b3">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="contenitore">
+    <a class="marchio" href="./"><img src="img/icona.png?v=15688521" alt="">Incastro Turni</a>
+    <button class="menu-bottone" aria-label="Menu" aria-expanded="false" onclick="const n=document.getElementById('nav');this.setAttribute('aria-expanded',n.classList.toggle('aperto'))">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+    </button>
+    <nav class="voci">
+      <a href="./#funzioni">Funzioni</a>
+      <a href="telefoni.html" aria-current="page">App per i turnisti</a>
+      <a href="./#video">Video</a>
+      <a href="guida/">Guida</a>
+      <a href="novita.html">Novità</a>
+      <a href="registrati.html">Registrati</a>
+      <a class="pillola" href="./#scarica">Scarica</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- eroe -->
+<div class="eroe compatto">
+  <div class="contenitore">
+    <p><span class="etichetta-arrivo" title="Arriva con la versione 0.1.7">Novità · in arrivo</span></p>
+    <h1>App per i turnisti</h1>
+    <p class="slogan">Desiderata dal telefono. Turni con una notifica.</p>
+    <p class="intro">I colleghi scelgono su un calendario ferie e giorni da evitare, entro la scadenza che decidi tu:
+      le richieste arrivano da sole in Incastro Turni. Quando pubblichi, i turni compaiono su telefono, tablet e computer,
+      con un avviso. E se correggi un turno, ognuno vede subito che cosa è cambiato.</p>
+    <p class="nota-piccola">Arriva con la versione 0.1.7 · iPhone, Android, tablet e computer · nessun account per i medici</p>
+  </div>
+  <div class="trio">
+    <div class="finestra">
+      <div class="titolo"><i></i><i></i><i></i><span>Turni · Reparto Esempio</span></div>
+      <img src="img/pc-oggi.webp" alt="L'app per i turnisti nel browser del computer: oggi e domani, i turni cambiati di dicembre e chi c'è in reparto" width="1600" height="1000">
+    </div>
+    <div class="tablet"><img src="img/tablet-reparto.webp" alt="Su un tablet, il turno di dicembre di tutto il reparto in una griglia" width="1600" height="1112"></div>
+    <div class="telefono"><img src="img/tel-oggi.webp" alt="Sul telefono, la schermata Oggi con la scadenza delle richieste di dicembre e i turni di oggi e domani" width="750" height="1631"></div>
+  </div>
+</div>
+
+<!-- il giro del mese in breve -->
+<section class="grigio" id="giro">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">Il giro del mese</p>
+      <h2>Dalle richieste ai turni sul telefono. Senza fogli da raccogliere.</h2>
+      <p>Il coordinatore lavora come sempre in Incastro Turni, sul suo computer. I colleghi usano solo il telefono.</p>
+    </div>
+    <ol class="passi">
+      <li><b>Invita</b><span>Un'e-mail dalla tua posta, oppure WhatsApp o un QR.</span></li>
+      <li><b>Installa</b><span>Il collega tocca il link e aggiunge l'app alla schermata Home.</span></li>
+      <li><b>Richieste</b><span>Ferie e giorni da evitare, entro la scadenza.</span></li>
+      <li><b>Aggiorna</b><span>Le richieste compaiono nei desiderata del mese.</span></li>
+      <li><b>Pubblica</b><span>I turni arrivano su ogni dispositivo, con un avviso.</span></li>
+      <li><b>Correggi</b><span>Chi è coinvolto vede che cosa cambia, e tu vedi chi l'ha visto.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- i passi, uno per uno -->
+<section id="passi">
+  <div class="contenitore">
+
+    <div class="passo">
+      <div class="testo">
+        <span class="numero">1</span>
+        <h3>Inviti tutti, con un clic.</h3>
+        <p>Dalla pagina Medici premi <b>Invita tutti</b>: ogni collega riceve un'e-mail <b>dalla tua casella di posta</b>
+          (Gmail, iCloud o la posta dell'ospedale) con il suo invito personale. Se preferisci, lo stesso invito parte
+          su WhatsApp o si fa inquadrare con un QR.</p>
+        <ul class="elenco">
+          <li>Ogni invito è personale, vale una volta sola e scade dopo due settimane</li>
+          <li>C'è anche un codice breve da scrivere a mano, se il link non si apre</li>
+          <li>Telefono nuovo? Un nuovo invito, e il vecchio telefono si scollega</li>
+        </ul>
+      </div>
+      <div class="immagine stretta"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Invito</span></div>
+        <img src="img/desk-invito.webp" alt="La finestra dell'invito per una collega: codice breve, e-mail, WhatsApp, link e QR da inquadrare" loading="lazy" width="961" height="1083"></div></div>
+    </div>
+
+    <div class="passo inverso">
+      <div class="testo">
+        <span class="numero">2</span>
+        <h3>Un tocco sul link. L'app è sulla Home.</h3>
+        <p>Il collega apre il link sul telefono e trova una <b>guida per immagini</b>, adatta al suo telefono, per aggiungere
+          l'app alla schermata Home. Il nome dell'icona è già scritto. Al primo avvio l'app <b>trova l'invito da sola</b>,
+          mostra subito i turni già pubblicati e chiede se avvisarlo quando ne escono di nuovi.</p>
+        <p>Non serve passare dall'App Store o da Google Play, né creare un account.</p>
+      </div>
+      <div class="immagine">
+        <div class="schermi tre">
+          <figure><div class="telefono"><img src="img/tel-guida.webp" alt="La guida all'installazione che si apre toccando l'invito su iPhone" loading="lazy" width="750" height="1631"></div><figcaption>La guida, passo per passo</figcaption></figure>
+          <figure><div class="telefono"><img src="img/tel-aggiungi.webp" alt="La finestra di iPhone «Aggiungi a Home» con il nome Turni Esempio già scritto" loading="lazy" width="750" height="1631"></div><figcaption>Il nome è già pronto</figcaption></figure>
+          <figure><div class="telefono"><img src="img/tel-avvisi.webp" alt="Al primo avvio l'app chiede se avvisare quando escono i turni" loading="lazy" width="750" height="1631"></div><figcaption>Collegato: vuoi gli avvisi?</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="installa" id="installa">
+      <div class="riquadro"><h3>Su iPhone e iPad</h3>
+        <ol>
+          <li>Tocca il link dell'invito: si apre <b>Safari</b> con la guida.</li>
+          <li>Tocca <b>⋯</b> oppure <b>Condividi</b>, poi <b>Visualizza altro</b>.</li>
+          <li>Scegli <b>Aggiungi alla schermata Home</b> e tocca <b>Aggiungi</b>.</li>
+          <li>Apri <b>l'app dalla Home</b>: l'invito si completa da solo.</li>
+          <li>Tocca <b>Sì, avvisami</b> e poi <b>Consenti</b>.</li>
+        </ol>
+        <p class="nota">Servono iOS 16.4 o successivo. Se il link si apre dentro WhatsApp o un'app di posta, la pagina spiega come passare a Safari.</p></div>
+      <div class="riquadro"><h3>Su Android</h3>
+        <ol>
+          <li>Tocca il link dell'invito: si apre il browser con la guida.</li>
+          <li>Tocca <b>Installa</b>, oppure il menu <b>⋮</b> e poi <b>Installa app</b>.</li>
+          <li>Apri l'app: l'invito è già lì.</li>
+          <li>Tocca <b>Sì, avvisami</b> e consenti le notifiche.</li>
+        </ol>
+        <p class="nota">Con Chrome, Edge o Samsung Internet.</p></div>
+      <div class="riquadro"><h3>Sul computer</h3>
+        <ol>
+          <li>Chiedi al coordinatore un invito <b>per un altro dispositivo</b>.</li>
+          <li>Apri il link nel browser (Chrome, Edge, Safari, Firefox): il computer è subito collegato.</li>
+          <li>Se vuoi, installala come app o aggiungila al Dock.</li>
+        </ol>
+        <p class="nota">Telefono, tablet e computer restano collegati insieme.</p></div>
+    </div>
+
+    <div class="passo" style="margin-top:110px">
+      <div class="testo">
+        <span class="numero">3</span>
+        <h3>Le richieste, su un calendario.</h3>
+        <p>Nella scheda <b>Richieste</b> il collega tocca un giorno, o più giorni di fila, e sceglie che cosa chiedere:
+          ferie, aggiornamento, «niente notte», «preferisco il pomeriggio»… con una nota breve se serve.
+          In alto vede sempre <b>la scadenza fissata dal coordinatore</b> e quanti giorni mancano.</p>
+        <ul class="elenco">
+          <li>Le voci vengono dal catalogo del reparto: niente testi da interpretare</li>
+          <li>Si possono correggere e reinviare fino alla scadenza</li>
+          <li>Dopo la scadenza, o a turni pubblicati, il telefono non invia più</li>
+        </ul>
+      </div>
+      <div class="immagine">
+        <div class="schermi">
+          <figure><div class="telefono"><img src="img/tel-scelta.webp" alt="La scelta della richiesta per giovedì 24 dicembre: niente guardia notte" loading="lazy" width="750" height="1631"></div><figcaption>Un giorno, una voce</figcaption></figure>
+          <figure><div class="telefono"><img src="img/tel-richieste.webp" alt="Il calendario di dicembre con le richieste inviate e la scadenza del 20 novembre" loading="lazy" width="750" height="1631"></div><figcaption>Inviate, con la scadenza in vista</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="passo inverso">
+      <div class="testo">
+        <span class="numero">4</span>
+        <h3>Le richieste arrivano nei desiderata.</h3>
+        <p>Nella scheda Desiderata del mese premi <b>Aggiorna</b>: le richieste compaiono nella griglia di sempre,
+          con il <b>segno «dal telefono»</b> nell'angolo della cella. Sopra, chi ha già inviato e chi no.</p>
+        <ul class="elenco">
+          <li>Le celle che hai modificato tu restano tue: una nuova richiesta non le sovrascrive, te lo segnala</li>
+          <li>Quello che arriva dopo la scadenza viene messo da parte</li>
+          <li>«Ricorda a chi non ha inviato» avvisa solo chi manca</li>
+        </ul>
+      </div>
+      <div class="immagine"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Desiderata · dicembre 2026</span></div>
+        <img src="img/desk-richieste.webp" alt="La scheda Desiderata di dicembre: chi ha inviato le richieste dal telefono e la griglia con il segno blu sulle celle arrivate dal telefono" loading="lazy" width="1600" height="1000"></div></div>
+    </div>
+
+    <div class="passo">
+      <div class="testo">
+        <span class="numero">5</span>
+        <h3>Pubblichi. I turni sono già sul telefono.</h3>
+        <p>Generi il turno come sempre, lo controlli e premi <b>Pubblica</b>: Incastro Turni lo consegna a ogni dispositivo
+          collegato e manda un avviso, «Sono pubblicati i turni di dicembre». I turni restano salvati sul telefono e si
+          vedono anche senza rete.</p>
+        <ul class="elenco">
+          <li>I miei turni, il mese, chi c'è in reparto giorno per giorno</li>
+          <li>Esportazione nel calendario del telefono</li>
+          <li>Nell'avviso non c'è mai l'elenco dei turni</li>
+        </ul>
+      </div>
+      <div class="immagine">
+        <div class="schermi">
+          <figure><div class="telefono"><img src="img/tel-dicembre.webp" alt="Il calendario di dicembre con i propri turni e le ferie a fine mese" loading="lazy" width="750" height="1631"></div><figcaption>Il mese, a colpo d'occhio</figcaption></figure>
+          <figure><div class="telefono"><img src="img/tel-oggi.webp" alt="La schermata Oggi con il turno di oggi e di domani" loading="lazy" width="750" height="1631"></div><figcaption>Oggi e domani, in primo piano</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="passo inverso">
+      <div class="testo">
+        <span class="numero">6</span>
+        <h3>Una correzione? Lo sanno subito.</h3>
+        <p>Se cambi un turno già pubblicato, Incastro Turni ti mostra <b>che cosa cambia rispetto ai telefoni</b> e chiede se
+          avvisare. Chi è coinvolto riceve «Cambia il tuo turno del 14» e sul telefono trova il riquadro
+          <b>Turni cambiati</b>, con il prima e il dopo.</p>
+        <p>Accanto al turno vedi <b>chi lo ha già visto</b>: «Visti da 11 su 11».</p>
+      </div>
+      <div class="immagine">
+        <div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Avvisa i turnisti?</span></div>
+          <img src="img/desk-avvisa.webp" alt="La finestra «Avvisa i turnisti?» con i quattro turni che cambiano il 14 e il 15 dicembre" loading="lazy" width="961" height="409"></div>
+        <div class="finestra striscia"><img src="img/desk-visti.webp" alt="Sopra il turno: sui telefoni dei turnisti, visti da 11 su 11" loading="lazy" width="1066" height="88"></div>
+        <div class="schermi" style="margin-top:28px">
+          <figure><div class="telefono"><img src="img/tel-cambiati.webp" alt="Sul telefono il riquadro «Turni cambiati · dicembre»: il 14 da N a MS, il 15 da SN a MS" loading="lazy" width="750" height="1631"></div><figcaption>Sul telefono, che cosa è cambiato</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- funzioni -->
+<section class="grigio" id="funzioni-telefoni">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">Funzioni</p>
+      <h2>Pensata per il reparto vero.</h2>
+    </div>
+
+    <div class="funzione">
+      <div class="testo">
+        <h3>Telefono, tablet e computer.</h3>
+        <p>Ogni collega può collegare <b>più dispositivi</b>: il telefono in tasca, il tablet a casa, il computer
+          dell'ambulatorio. Turni e avvisi arrivano a tutti; le richieste si possono mandare da quello che si preferisce.</p>
+        <ul class="elenco">
+          <li>Sul computer funziona nel browser, senza installare nulla</li>
+          <li>Sul tablet, il turno di tutto il reparto in una griglia</li>
+        </ul>
+      </div>
+      <div class="immagine"><div class="tablet"><img src="img/tablet-reparto.webp" alt="Il turno di dicembre del reparto su un tablet in orizzontale" loading="lazy" width="1600" height="1112"></div></div>
+    </div>
+
+    <div class="funzione inversa">
+      <div class="testo">
+        <h3>Le richieste anche dal computer.</h3>
+        <p>Nel browser il calendario delle richieste si usa con il mouse: un clic su un giorno, <b>Maiusc</b> per un intervallo,
+          <b>Ctrl</b> (⌘ sul Mac) per giorni sparsi.</p>
+      </div>
+      <div class="immagine"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Turni · Reparto Esempio</span></div>
+        <img src="img/pc-richieste.webp" alt="Le richieste di gennaio nel browser del computer: ferie dal 4 all'8 e niente notte il 22" loading="lazy" width="1600" height="1000"></div></div>
+    </div>
+
+    <div class="funzione">
+      <div class="testo">
+        <h3>Il direttore vede. Senza essere nel turno.</h3>
+        <p>Il direttore di UOC, altri dirigenti, la coordinatrice o tu stesso potete ricevere i turni come
+          <b>osservatori</b>: vedono il turno di tutto il reparto e gli avvisi di pubblicazione, ma non compaiono in turni,
+          equità, desiderata o PDF, e non mandano richieste.</p>
+      </div>
+      <div class="immagine"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Impostazioni · Osservatori</span></div>
+        <img src="img/desk-osservatori.webp" alt="L'elenco degli osservatori: il direttore di UOC collegato e la coordinatrice da invitare" loading="lazy" width="1600" height="450"></div></div>
+    </div>
+
+    <div class="funzione inversa">
+      <div class="testo">
+        <h3>Il nome giusto sull'icona. E la scadenza.</h3>
+        <p>Scegli il nome che i colleghi vedranno sotto l'icona, per esempio «Turni Cardiologia», e una
+          <b>scadenza predefinita</b> per le richieste, come «entro il 20 del mese prima». Ogni mese la puoi spostare.</p>
+      </div>
+      <div class="immagine"><div class="finestra"><div class="titolo"><i></i><i></i><i></i><span>Impostazioni · App per il telefono</span></div>
+        <img src="img/desk-icona.webp" alt="Le impostazioni: nome del gruppo, nome sull'icona con l'anteprima e scadenza predefinita delle richieste" loading="lazy" width="1600" height="373"></div></div>
+    </div>
+
+    <div class="riquadri" style="margin-top:96px">
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><h3>Riserva senza servizio</h3>
+        <p>Il link cifrato da mandare su WhatsApp resta: chi non vuole collegarsi vede comunque i turni.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M4 7l8 6 8-6"/></svg></span><h3>Posta tua</h3>
+        <p>Gli inviti partono dal tuo indirizzo: la password resta nel portachiavi del computer.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><h3>Facoltativa</h3>
+        <p>Si attiva in Impostazioni quando vuoi. Senza, Incastro Turni funziona come prima.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- sicurezza e privacy -->
+<section class="scura sicurezza" id="sicurezza">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">Sicurezza e privacy</p>
+      <h2>Cifrato da un capo all'altro. Custodito solo il tempo necessario.</h2>
+      <p>Tra il computer del coordinatore e i telefoni c'è un servizio di passaggio: un deposito temporaneo di buste chiuse.
+        Le buste si aprono solo sul dispositivo a cui sono destinate.</p>
+    </div>
+    <div class="riquadri">
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Cifratura da un capo all'altro</h3>
+        <p>Turni e richieste viaggiano in buste cifrate che si aprono solo sul dispositivo destinatario. Le chiavi nascono
+          sui dispositivi e non li lasciano mai. Ogni busta è firmata: nessuno può alterarla o inventarla.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><h3>Un deposito, non un archivio</h3>
+        <p>Ogni busta si cancella appena il destinatario la ritira, e comunque entro 45 giorni.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/><path d="M4 4l16 16"/></svg></span><h3>Nessun nome sul servizio</h3>
+        <p>Nomi, e-mail, numeri di telefono e nome del reparto non ci arrivano mai: il servizio conosce solo codici casuali.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M7 12h.01M11 12h.01M15 12h.01"/></svg></span><h3>Niente account, niente password</h3>
+        <p>I medici non si registrano da nessuna parte: si entra con l'invito personale, che vale una volta sola.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></svg></span><h3>I dati veri restano sul PC</h3>
+        <p>Archivio, regole, storico e turni restano sul computer del coordinatore. Se il servizio sparisse, non si perde nulla.</p></div>
+      <div class="riquadro"><span class="simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17M12 3.5c-2.5 2.6-2.5 14.4 0 17"/></svg></span><h3>Servizio in Unione Europea</h3>
+        <p>I dati del servizio, cioè buste chiuse e codici casuali, sono conservati in Unione Europea.</p></div>
+    </div>
+
+    <div class="inventario">
+      <h3>Che cosa conserva il servizio, e per quanto</h3>
+      <p>L'elenco completo, utile per la valutazione del responsabile della protezione dei dati (DPO) della vostra azienda.</p>
+      <table>
+        <thead><tr><th>Che cosa</th><th>Fino a quando</th></tr></thead>
+        <tbody>
+          <tr><td>Buste cifrate (turni, richieste, scadenze)</td><td>Fino al ritiro da parte del destinatario, al massimo 45 giorni.</td></tr>
+          <tr><td>Inviti in attesa (busta di benvenuto cifrata)</td><td>Fino a quando l'invito viene usato o scade.</td></tr>
+          <tr><td>Codici casuali del reparto e dei dispositivi, con le loro chiavi pubbliche e il giorno dell'ultimo accesso</td><td>Finché il collegamento è attivo; un dispositivo scollegato si cancella dopo 30 giorni, un reparto inattivo dopo 12 mesi.</td></tr>
+        </tbody>
+      </table>
+      <p class="mai"><b>Mai sul servizio:</b> nomi, e-mail, numeri di telefono, nome del reparto o dell'ospedale, turni o richieste leggibili.</p>
+      <p>Gli avvisi passano dal servizio di notifica del telefono o del browser (Apple, Google o Mozilla), come per qualsiasi app,
+        e contengono solo una frase breve come «Sono pubblicati i turni di dicembre». Questa pagina descrive come funziona
+        l'app: la valutazione sulla protezione dei dati resta della vostra azienda.</p>
+    </div>
+  </div>
+</section>
+
+<!-- domande -->
+<section id="domande">
+  <div class="contenitore">
+    <div class="titolo-sezione">
+      <p class="occhiello">Domande</p>
+      <h2>Prima di cominciare.</h2>
+    </div>
+    <div class="domande">
+      <details><summary>Bisogna scaricare qualcosa dagli store?</summary>
+        <p>No. L'app si aggiunge alla schermata Home direttamente dalla pagina che si apre con l'invito, su iPhone e su Android.
+          Sul computer funziona nel browser.</p></details>
+      <details><summary>Che cosa succede se un collega cambia telefono?</summary>
+        <p>Il coordinatore gli manda un nuovo invito: quando lo usa, il vecchio telefono si scollega. Per aggiungere un tablet
+          o il computer, invece, c'è l'invito «per un altro dispositivo», e restano collegati tutti.</p></details>
+      <details><summary>E chi non vuole installare nulla?</summary>
+        <p>Il turno resta disponibile come sempre: PDF da stampare e link cifrato da mandare su WhatsApp, da aprire nel browser.</p></details>
+      <details><summary>Si può mandare una richiesta dopo la scadenza?</summary>
+        <p>No: dopo la scadenza, o quando i turni del mese sono già pubblicati, il telefono non invia più per quel mese e lo dice
+          chiaramente. Per i cambi tardivi si parla con il coordinatore.</p></details>
+      <details><summary>Le richieste dal telefono sostituiscono quelle che ho scritto io?</summary>
+        <p>No. Le celle dei desiderata che il coordinatore ha modificato a mano restano come sono: se dal telefono arriva qualcosa
+          di diverso, Incastro Turni lo segnala e decidi tu.</p></details>
+      <details><summary>Chi vede le richieste dei colleghi?</summary>
+        <p>Solo il coordinatore, nell'app sul suo computer. Gli altri colleghi e gli osservatori vedono i turni pubblicati, non le richieste.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- in arrivo -->
+<section class="grigio" id="arrivo">
+  <div class="contenitore">
+    <div class="invito">
+      <div>
+        <h3>In arrivo con la versione 0.1.7.</h3>
+        <p>L'app per i turnisti arriva con il prossimo aggiornamento di Incastro Turni, che si installa da solo.
+          È facoltativa e si attiva in Impostazioni. Nelle immagini nomi, sigle e reparto sono di fantasia.</p>
+      </div>
+      <a class="bottone" href="./#scarica">Scarica Incastro Turni</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="contenitore righe">
+    <div>
+      <p>Progettata e realizzata dall'Ing. Antonio S. Calanducci, con il supporto della Dott.ssa Tiziana Di Gregorio, MD.</p>
+      <p>Incastro Turni · beta, progetto personale, senza garanzie e senza supporto ufficiale.</p>
+    </div>
+    <nav>
+      <a href="telefoni.html">App per i turnisti</a>
+      <a href="guida/">Guida</a>
+      <a href="novita.html">Novità</a>
+      <a href="registrati.html">Registrati</a>
+      <a href="registrati.html#informativa">Privacy</a>
+      <a href="https://github.com/acaland/incastro-turni-sanita/issues">Segnala un problema</a>
+      <a href="https://github.com/acaland/incastro-turni-sanita/releases">Tutte le versioni</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll(".nav .voci a").forEach(function (a) {
+  a.addEventListener("click", function () { document.getElementById("nav").classList.remove("aperto"); });
+});
+</script>
+</body>
+</html>

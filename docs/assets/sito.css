@@ -323,3 +323,112 @@ footer p { margin: 0 0 6px; }
   .campi { grid-template-columns: 1fr; }
   .modulo .bottone { width: 100%; }
 }
+
+/* app per i turnisti: etichetta «in arrivo», riassunto nella home e pagina telefoni.html */
+.etichetta-arrivo {
+  display: inline-block; vertical-align: 2px; margin-left: 8px; padding: 3px 10px; border-radius: 980px;
+  border: 1px solid currentColor; font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: .02em; white-space: nowrap;
+}
+.didascalie.due div:nth-child(2) { margin-top: 0; }
+.continua { text-align: center; margin: 56px 0 0; }
+
+.eroe.compatto { padding-top: 64px; }
+.eroe.compatto h1 { font-size: clamp(40px, 7vw, 68px); }
+.eroe .etichetta-arrivo { color: var(--accento-testo); font-size: 13px; margin: 0 0 18px; }
+/* computer, tablet e telefono insieme */
+.trio { position: relative; max-width: 1080px; margin: 56px auto 0; padding: 0 16px 40px; }
+.trio .finestra { width: 78%; }
+.trio .tablet { position: absolute; right: 16px; bottom: 0; width: 46%; }
+.trio .telefono { position: absolute; left: 60%; bottom: 20px; width: 17%; min-width: 0; padding: 6px; border-radius: 26px; }
+.trio .telefono img { border-radius: 21px; }
+@media (max-width: 760px) {
+  .trio { padding-bottom: 24px; }
+  .trio .finestra { width: 92%; }
+  .trio .tablet { width: 58%; }
+  .trio .telefono { left: auto; right: 50%; width: 24%; padding: 4px; border-radius: 16px; }
+  .trio .telefono img { border-radius: 13px; }
+}
+
+/* cornice del tablet (come quella del telefono, più larga) */
+.tablet {
+  border-radius: 30px; padding: 12px; background: #1a1a1c;
+  box-shadow: 0 0 0 1.5px #3a3a3c, 0 30px 60px -24px rgba(16, 24, 40, .45);
+}
+.tablet img { border-radius: 19px; width: 100%; height: auto; }
+@media (max-width: 760px) { .tablet { border-radius: 18px; padding: 6px; } .tablet img { border-radius: 12px; } }
+@media (prefers-color-scheme: dark) { .tablet img { filter: brightness(.9); } }
+
+/* un passo del giro: numero, testo e schermate */
+.passo { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; margin-bottom: 110px; }
+.passo:last-child { margin-bottom: 0; }
+.passo > * { min-width: 0; }
+.passo.inverso { grid-template-columns: 7fr 5fr; }
+.passo.inverso .testo { order: 2; }
+.passo .numero {
+  display: flex; width: 36px; height: 36px; border-radius: 50%; align-items: center; justify-content: center;
+  background: var(--accento); color: #fff; font-weight: 700; font-size: 16px; margin-bottom: 14px;
+}
+.passo h3 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; letter-spacing: -.025em; font-weight: 700; margin-bottom: 16px; }
+.passo .testo p { font-size: 19px; color: var(--testo-2); }
+.passo .testo p b { color: var(--testo); font-weight: 600; }
+.passo .elenco { list-style: none; padding: 0; margin: 18px 0 0; }
+.passo .elenco li { padding: 10px 0 10px 30px; position: relative; border-top: 1px solid var(--bordo); font-size: 16px; }
+.passo .elenco li::before { content: "✓"; position: absolute; left: 4px; color: var(--accento); font-weight: 700; }
+.passo .immagine .striscia { margin-top: 18px; }
+@media (max-width: 860px) {
+  .passo, .passo.inverso { grid-template-columns: 1fr; gap: 28px; margin-bottom: 72px; }
+  .passo.inverso .testo { order: 0; }
+}
+
+/* schermate del telefono affiancate, con didascalia */
+.schermi { display: flex; justify-content: center; gap: 22px; align-items: flex-start; }
+.schermi figure { margin: 0; width: 220px; flex: 0 1 220px; min-width: 0; }
+.schermi .telefono { width: 100%; padding: 8px; border-radius: 36px; box-shadow: 0 0 0 1.5px #3a3a3c, 0 30px 60px -28px rgba(16, 24, 40, .45); }
+.schermi .telefono img { border-radius: 28px; }
+.schermi figcaption { font-size: 14px; color: var(--testo-2); text-align: center; margin-top: 12px; line-height: 1.35; }
+.schermi.tre figure { width: 200px; flex-basis: 200px; }
+@media (max-width: 860px) {
+  .schermi { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 16px 16px; margin: 0 -16px; }
+  .schermi figure, .schermi.tre figure { flex: 0 0 200px; scroll-snap-align: center; }
+}
+@media (max-width: 860px) and (min-width: 561px) { .schermi { justify-content: center; } }
+
+/* guida all'installazione: tre colonne */
+.installa { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+.installa ol { margin: 10px 0 0; padding-left: 20px; color: var(--testo-2); font-size: 15px; }
+.installa li { margin-bottom: 6px; }
+.installa li b { color: var(--testo); }
+.installa .nota { font-size: 14px; color: var(--testo-2); margin-top: 12px; }
+@media (max-width: 860px) { .installa { grid-template-columns: 1fr; } }
+
+/* sicurezza e privacy */
+.sicurezza .riquadri { margin-top: 0; }
+.scura .riquadro { background: #1c1c1e; border-color: rgba(255, 255, 255, .1); }
+.scura .riquadro p { color: #a1a1a6; }
+.scura .simbolo svg { stroke: #ff8f52; }
+.inventario { margin-top: 56px; background: #1c1c1e; border-radius: var(--raggio); padding: 30px 32px; border: 1px solid rgba(255, 255, 255, .1); }
+.inventario h3 { font-size: 21px; margin-bottom: 6px; }
+.inventario > p { color: #a1a1a6; font-size: 15px; }
+.inventario table { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 14px; }
+.inventario th, .inventario td { text-align: left; padding: 10px 12px 10px 0; border-top: 1px solid rgba(255, 255, 255, .12); vertical-align: top; }
+.inventario th { color: #a1a1a6; font-weight: 600; font-size: 13px; border-top: 0; }
+.inventario td:first-child { color: #f5f5f7; font-weight: 600; width: 34%; }
+.inventario td { color: #c7c7cc; }
+.inventario .mai { margin: 16px 0 0; color: #f5f5f7; font-size: 15px; }
+@media (max-width: 560px) {
+  .inventario { padding: 24px 20px; }
+  .inventario table, .inventario tbody, .inventario tr, .inventario td { display: block; width: auto !important; }
+  .inventario thead { display: none; }
+  .inventario td { border-top: 0; padding: 0 0 4px; }
+  .inventario tr { border-top: 1px solid rgba(255, 255, 255, .12); padding: 12px 0 8px; }
+}
+
+/* domande frequenti */
+.domande { max-width: 820px; margin: 0 auto; }
+.domande details { border-top: 1px solid var(--bordo); padding: 16px 4px; }
+.domande details:last-child { border-bottom: 1px solid var(--bordo); }
+.domande summary { cursor: pointer; font-weight: 600; font-size: 18px; list-style: none; position: relative; padding-right: 28px; }
+.domande summary::-webkit-details-marker { display: none; }
+.domande summary::after { content: "+"; position: absolute; right: 4px; top: -2px; font-size: 22px; font-weight: 400; color: var(--testo-2); }
+.domande details[open] summary::after { content: "–"; }
+.domande details p { color: var(--testo-2); font-size: 16px; margin: 10px 0 0; }
